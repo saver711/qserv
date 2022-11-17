@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en" class="scrollbar2">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Qserv | Daily</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="../../favicon.ico">
+    <link rel="shortcut icon" href="../../favicon.png">
+
+    <!-- google fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+    <!-- select2 -->
+    <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
+    <!-- font-awesome icons -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <!-- TABLES -->
+    <link rel="stylesheet" href="../../plugins/tables/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../plugins/tables/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../dist/css/helpers/tables.css">
+    <!-- dropdowns -->
+    <link rel="stylesheet" href="../../dist/css/helpers/dropdowns.css">
+    <!-- grid -->
+    <link rel="stylesheet" href="../../dist/css/helpers/grid.css">
+    <!-- cards -->
+    <link rel="stylesheet" href="../../dist/css/helpers/cards.css">
+    <!-- pagination -->
+    <link rel="stylesheet" href="../../dist/css/helpers/pagination.css">
+
+    <!-- animations -->
+    <link rel="stylesheet" href="../../dist/css/helpers/animations.css">
+    <!-- layout -->
+    <link rel="stylesheet" href="../../dist/css/helpers/layout.css">
+    <!-- helperClasses -->
+    <link rel="stylesheet" href="../../dist/css/helpers/helperClasses.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
+    <!-- toast -->
+    <link rel="stylesheet" href="../../plugins/toastr/toastr.min.css">
+    <!-- forms -->
+    <link rel="stylesheet" href="../../dist/css/helpers/forms.css">
+
+    <!-- modals -->
+    <link rel="stylesheet" href="../../dist/css/helpers/modals.css">
+
+
+    <!-- all other styles -->
+    <!-- <link rel="stylesheet" href="../../dist/css/restOfStyles.css"> -->
+
+    <!-- specific styles -->
+    <link rel="stylesheet" href="../../dist/css/global.css">
+
+    <!-- RTL -->
+    <link rel="stylesheet" href="../../dist/css/RTL.css">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed sidebar-collapse">
+    <div class="wrapper">
+        <!-- SHARED -->
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <span class="nav-link" data-widget="pushmenu" role="button"><i
+                            class="fa-solid fa-bars-staggered"></i></span>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <span class="nav-link">
+                        <label for="themeToggler">
+                            <input id="themeToggler" class='toggle-checkbox' type='checkbox'></input>
+                            <div class='toggle-slot'>
+                                <div class='sun-icon-wrapper themeIconWrapper'>
+                                    <i class="sun-icon themeIcon fa-solid fa-sun"></i>
+                                </div>
+                                <div class='toggle-button'></div>
+                                <div class='moon-icon-wrapper themeIconWrapper'>
+                                    <i class="moon-icon themeIcon fa-solid fa-moon"></i>
+                                </div>
+                            </div>
+                        </label>
+                    </span>
+                </li>
+                <li class="nav-item dropdown ">
+                    <span class="nav-link" data-toggle="dropdown" href="#" aria-expanded="true">
+                        <i class="far fa-bell"></i>
+                        <!-- shown only if there are notifications -->
+                        <span class="badge badge-warning navbar-badge"></span>
+                    </span>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-item text-left dropdown-header">Notifications</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <div class="dropdown-textAndIcon">
+                                <i class="fas fa-envelope mr-2"></i>
+                                <span>4 new messages</span>
+                            </div>
+                            
+                            <span class="float-right text-muted text-sm">3 mins</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <div class="dropdown-textAndIcon">
+                                <i class="fas fa-users mr-2"></i>
+                                <span>8 friend requests</span>
+                            </div>
+                            
+                            <span class="float-right text-muted text-sm">12 hours</span>
+                        </a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <span class="nav-link" role="button" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-chevron-down"></i>
+                    </span>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <a class="dropdown-item" href="../../pages/users/changePassword.html">
+                            <div class="dropdown-textAndIcon">
+                                <i class="fas fa-lock-open mr-2"></i>
+                                <span>Change password</span>
+                                
+                            </div>
+                            
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                            <div class="dropdown-textAndIcon">
+                                <i class="fas fa-sign-out-alt mr-2"></i>
+                                <span>Sign-out</span>
+                            </div>
+                             
+                        </a>
+
+
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar">
+            <!-- Brand Logo -->
+            <a href="#" class="brand-link logo-switch">
+                <img src="../../dist/img/logo2.png" alt="Qserv" class="brand-image-xs logo-xl">
+                <img src="../../dist/img/logoSmall.png" alt="Qserv" class="brand-image-xs logo-xs">
+            </a>
+
+
+            <!-- Sidebar -->
+            <div class="sidebar scrollbar">
+                <!-- <div class="divider"></div> -->
+                <div class="user-panel  d-flex">
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-3 mb-4">
+
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <li class="nav-item menu-is-opening menu-open">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa-solid fa-chart-bar"></i>
+                                <p>
+                                    Reports
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../../index.html" class="nav-link">
+                                        <i class="nav-icon fa-solid fa-house-chimney-crack"></i>
+                                        <p>Dashboard</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="../../pages/reports/realTimeReport.html" class="nav-link">
+                                        <i class="nav-icon fa-solid fa-clock-rotate-left"></i>
+                                        <p>Real Time Report</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../pages/reports/dailyReport.html" class="nav-link active">
+                                        <i class="nav-icon fa-solid fa-calendar-week"></i>
+                                        <p>Daily Report</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../pages/reports/shiftReport.html" class="nav-link ">
+                                        <i class="nav-icon fa-solid fa-arrows-rotate"></i>
+                                        <p>Shift Report</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../pages/reports/transactionsReport.html" class="nav-link ">
+                                        <i class="nav-icon fa-solid fa-right-left"></i>
+                                        <p>Transactions Report</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../pages/reports/deliveryReport.html" class="nav-link ">
+                                        <i class="nav-icon fa-solid fa-hand-holding-droplet"></i>
+                                        <p>Delivery Report</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa-solid fa-bars-progress"></i>
+                                <p>
+                                    Management
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../../pages/management/stations.html" class="nav-link ">
+                                        <i class="nav-icon fa-solid fa-map-location-dot"></i>
+                                        <p>Stations</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../pages/management/stationPrices.html" class="nav-link">
+                                        <i class="nav-icon fa-solid fa-file-invoice-dollar"></i>
+                                        <p>Change price</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../pages/management/delivery.html" class="nav-link ">
+                                        <i class="nav-icon fa-solid fa-truck-ramp-box"></i>
+                                        <p>Delivery</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../pages/management/tanks.html" class="nav-link ">
+                                        <i class="nav-icon fa-solid fa-boxes-stacked"></i>
+                                        <p>Tanks</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../pages/management/transactions.html" class="nav-link ">
+                                        <i class="nav-icon fa-solid fa-file-waveform"></i>
+                                        <p>Transactions</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../pages/management/nozzles.html" class="nav-link ">
+                                        <i class="nav-icon fa-brands fa-hubspot"></i>
+                                        <p>Nozzles</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../pages/management/cities.html" class="nav-link ">
+                                        <i class="nav-icon fa-solid fa-city"></i>
+                                        <p>Cities</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../pages/management/dispensers.html" class="nav-link ">
+                                        <i class="nav-icon fa-solid fa-gas-pump"></i>
+                                        <p>Dispensers</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../pages/management/employees.html" class="nav-link ">
+                                        <i class="nav-icon fa-solid fa-users-gear"></i>
+                                        <p>Employees</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa-solid fa-user-gear"></i>
+                                <p>
+                                    User Management
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../../pages/users/listUsers.html" class="nav-link ">
+                                        <i class="nav-icon fa-solid fa-users-gear"></i>
+                                        <p>Users</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- /.Main Sidebar Container -->
+
+        <!-- /.SHARED -->
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <div class="content pt-3">
+                <div class="container-fluid ">
+
+                    <div class="row">
+                        <div class="col-12 mb-3 mb-md-0">
+                            <!-- filtering -->
+                            <div class="card">
+                                <div class="card-header border-0">
+                                    <div class="d-flex justify-content-between">
+                                        <h3 class="card-title">All needed form elements</h3>
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body pt-half">
+                                    <form action="">
+                                        <!-- multi selection -->
+                                        <div class="form-group mb-3">
+                                            <label for="stationa">Station</label>
+                                            <select id="stationa" class="select2" multiple="multiple"
+                                                data-placeholder="Select Station" style="width: 100%;">
+                                                <option>bathaa</option>
+                                                <option>skoop</option>
+                                                <option>sasko</option>
+                                                <option>kahtany</option>
+
+                                            </select>
+                                        </div>
+                                        <!-- data and time range -->
+                                        <div class="form-group mb-3">
+                                            <label for="reservationtime">Date and time range:</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="far fa-clock"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control float-right"
+                                                    id="reservationtime">
+                                            </div>
+                                        </div>
+                                        <!-- single select -->
+                                        <div class="form-group mb-3">
+                                            <label>Station</label>
+                                            <select class="form-control select2" style="width: 100%;">
+                                                <option selected="selected">All</option>
+                                                <option>bathaa</option>
+                                                <option>skoop</option>
+                                                <option>sasko</option>
+                                                <option>kahtany</option>
+
+                                            </select>
+                                        </div>
+                                        <!-- Date range -->
+                                        <div class="form-group">
+                                            <label for="reservation">Date range:</label>
+
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="far fa-calendar-alt"></i>
+                                                    </span>
+                                                </div>
+                                                <input type="text" class="form-control float-right" id="reservation">
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <button type="submit" class="brimaryBtn">Confirm</button>
+                                    </form>
+                                    <!-- toast -->
+                                    <button id="btn1">show green Toast</button>
+                                    <button id="btn2">show warning Toast</button>
+                                    <button id="btn3">show error Toast</button>
+                                    <button id="btn4">show info Toast</button>
+                                    <button id="btn5">clear Toasts</button>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header border-0">
+                                    <div class="d-flex justify-content-between">
+                                        <div id="BTNStable1" class="tableBtns">
+                                            <h3 class="card-title">All needed table cells</h3>
+                                        </div>
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body pt-half">
+                                    <table class="table table-hover" id="table1">
+                                        <thead>
+                                            <tr>
+                                                <th>station</th>
+                                                <th>benzin 95</th>
+                                                <th>Benzin 91</th>
+                                                <th>Diesel</th>
+                                            </tr>
+                                        </thead>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- createBtn -->
+                    <div class="createBtn" data-toggle="modal" data-target="#modal-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <g clip-path="url(#clip0_142_5543)">
+                                <path d="M20 8H4V6H20V8ZM18 2H6V4H18V2Z" fill="white" />
+                                <path
+                                    d="M22 10H2C1.46957 10 0.960859 10.2107 0.585786 10.5858C0.210714 10.9609 0 11.4696 0 12L0 22C0 22.5304 0.210714 23.0391 0.585786 23.4142C0.960859 23.7893 1.46957 24 2 24H22C22.5304 24 23.0391 23.7893 23.4142 23.4142C23.7893 23.0391 24 22.5304 24 22V12C24 11.4696 23.7893 10.9609 23.4142 10.5858C23.0391 10.2107 22.5304 10 22 10ZM22 22H2V12H22V22Z"
+                                    fill="white" />
+                                <path
+                                    d="M11.1533 20.6001V13.4001H12.8653V20.6001H11.1533ZM8.32125 17.8001V16.2001H15.6973V17.8001H8.32125Z"
+                                    fill="white" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_142_5543">
+                                    <rect width="24" height="24" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+
+                    <!-- modal -->
+                    <div class="modal fade" id="modal-lg">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Create New</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form id="quickForm">
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Email address</label>
+                                                    <input type="email" name="email" class="form-control"
+                                                        id="exampleInputEmail1" placeholder="Enter email">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">Password</label>
+                                                    <input type="password" name="password" class="form-control"
+                                                        id="exampleInputPassword1" placeholder="Password">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group mb-0">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" name="terms" class="custom-control-input"
+                                                    id="exampleCheck1">
+                                                <label class="custom-control-label" for="exampleCheck1">I agree to the
+                                                    <a href="#">terms of
+                                                        service</a>.</label>
+                                            </div>
+                                        </div>
+                                        <div class="divider"></div>
+                                        <p>All other needed form elements</p>
+                                        <div class="form-group">
+                                            <label for="text1">Text input</label>
+                                            <input type="text" name="text1" class="form-control" id="text1"
+                                                placeholder="text...">
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer justify-content-between">
+                                        <button type="button" class="grayBtn" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="brimaryBtn">Create</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+
+                    <!-- create -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+
+
+
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- ./wrapper -->
+
+
+    <!-- JQUERY -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- BOOTSTRAP -->
+    <script src="../../plugins/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- ADMIN LTE SCRIPTS -->
+    <script src="../../dist/js/scripts.min.js"></script>
+    <!-- select2 -->
+    <script src='../../plugins/select2/js/select2.full.min.js'></script>
+    <!-- InputMask -->
+    <script src="../../plugins/moment/moment.min.js"></script>
+    <script src="../../plugins/inputmask/jquery.inputmask.min.js"></script>
+    <!-- date-range-picker -->
+    <script src="../../plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- toast -->
+    <script src="../../plugins/toastr/toastr.min.js"></script>
+    <!-- jquery-validation -->
+    <script src="../../plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="../../plugins/jquery-validation/additional-methods.min.js"></script>
+
+    <!-- TABLES -->
+    <script src="../../plugins/tables/js/jquery.dataTables.min.js"></script>
+    <script src="../../plugins/tables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../../plugins/tables/js/dataTables.responsive.min.js"></script>
+    <script src="../../plugins/tables/js/buttons.print.min.js"></script>
+    <script src="../../plugins/tables/js/dataTables.buttons.min.js"></script>
+    <script src="../../plugins/tables/js/buttons.html5.min.js"></script>
+    <script src="../../plugins/tables/js/jszip.min.js"></script>
+    <!-- COMMON SCRIPTS -->
+    <script src="../../dist/js/common.js"></script>
+    <!-- specific js -->
+    <script>
+        $(".select2").select2()
+
+        $("#reservationtime").daterangepicker({
+            timePicker: true,
+            timePickerIncrement: 30,
+            // isRTL: true,
+            locale: {
+                format: "MM/DD/YYYY hh:mm A",
+            },
+        })
+        $("#reservation").daterangepicker({
+            isRTL: true
+        })
+
+        /* form validation */
+        $("#quickForm").validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true,
+                },
+                password: {
+                    required: true,
+                    minlength: 5,
+                },
+                terms: {
+                    required: true,
+                },
+            },
+            messages: {
+                email: {
+                    required: "Please enter a email address",
+                    email: "Please enter a valid email address",
+                },
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long",
+                },
+                terms: "Please accept our terms",
+            },
+            errorElement: "span",
+            errorPlacement: function (error, element) {
+                error.addClass("invalid-feedback")
+                element.closest(".form-group").append(error)
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass("is-invalid")
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass("is-invalid")
+            },
+        })
+    </script>
+
+
+</body>
+
+</html>

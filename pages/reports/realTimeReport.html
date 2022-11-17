@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="en" class="scrollbar2">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qserv | Realtime</title>
+
+  <!-- favicon -->
+  <link rel="icon" href="../../favicon.ico">
+  <link rel="shortcut icon" href="../../favicon.png">
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- select2 -->
+  <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
+  <!-- font-awesome icons -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- TABLES -->
+  <link rel="stylesheet" href="../../plugins/tables/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../../plugins/tables/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="../../dist/css/helpers/tables.css">
+  <!-- dropdowns -->
+  <link rel="stylesheet" href="../../dist/css/helpers/dropdowns.css">
+  <!-- grid -->
+  <link rel="stylesheet" href="../../dist/css/helpers/grid.css">
+  <!-- cards -->
+  <link rel="stylesheet" href="../../dist/css/helpers/cards.css">
+  <!-- pagination -->
+  <link rel="stylesheet" href="../../dist/css/helpers/pagination.css">
+
+  <!-- animations -->
+  <link rel="stylesheet" href="../../dist/css/helpers/animations.css">
+  <!-- layout -->
+  <link rel="stylesheet" href="../../dist/css/helpers/layout.css">
+  <!-- helperClasses -->
+  <link rel="stylesheet" href="../../dist/css/helpers/helperClasses.css">
+
+
+  <!-- all other styles -->
+  <!-- <link rel="stylesheet" href="../../dist/css/restOfStyles.css"> -->
+
+  <!-- specific styles -->
+  <link rel="stylesheet" href="../../dist/css/global.css">
+  <link rel="stylesheet" href="../../dist/css/reports/realtime.css">
+
+  <!-- RTL -->
+  <!-- <link rel="stylesheet" href="../../dist/css/RTL.css"> -->
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed sidebar-collapse">
+  <div class="wrapper">
+    <!-- SHARED -->
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <span class="nav-link" data-widget="pushmenu" role="button"><i class="fa-solid fa-bars-staggered"></i></span>
+        </li>
+      </ul>
+
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item ">
+          <span class="nav-link">
+            <label>
+              <input id="themeToggler" class='toggle-checkbox' type='checkbox'></input>
+              <div class='toggle-slot'>
+                <div class='sun-icon-wrapper themeIconWrapper'>
+                  <i class="sun-icon themeIcon fa-solid fa-sun"></i>
+                </div>
+                <div class='toggle-button'></div>
+                <div class='moon-icon-wrapper themeIconWrapper'>
+                  <i class="moon-icon themeIcon fa-solid fa-moon"></i>
+                </div>
+              </div>
+            </label>
+          </span>
+        </li>
+        <li class="nav-item dropdown ">
+          <span class="nav-link" data-toggle="dropdown" href="#" aria-expanded="true">
+            <i class="far fa-bell"></i>
+            <!-- shown only if there are notifications -->
+            <span class="badge badge-warning navbar-badge"></span>
+          </span>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <span class="dropdown-item text-left dropdown-header">Notifications</span>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <div class="dropdown-textAndIcon">
+                <i class="fas fa-envelope mr-2"></i>
+                <span>4 new messages</span>
+              </div>
+
+              <span class="float-right text-muted text-sm">3 mins</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <div class="dropdown-textAndIcon">
+                <i class="fas fa-users mr-2"></i>
+                <span>8 friend requests</span>
+              </div>
+
+              <span class="float-right text-muted text-sm">12 hours</span>
+            </a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <span class="nav-link" role="button" data-toggle="dropdown" href="#" aria-expanded="false">
+            <i class="fa fa-chevron-down"></i>
+          </span>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <a class="dropdown-item" href="../../pages/users/changePassword.html">
+              <div class="dropdown-textAndIcon">
+                <i class="fas fa-lock-open mr-2"></i>
+                <span>Change password</span>
+              </div>
+
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <div class="dropdown-textAndIcon">
+                <i class="fas fa-sign-out-alt mr-2"></i>
+                <span>Sign-out</span>
+              </div>
+
+            </a>
+
+
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-link logo-switch">
+        <img src="../../dist/img/logo2.png" alt="Qserv" class="brand-image-xs logo-xl">
+        <img src="../../dist/img/logoSmall.png" alt="Qserv" class="brand-image-xs logo-xs">
+      </a>
+
+
+      <!-- Sidebar -->
+      <div class="sidebar scrollbar">
+        <!-- <div class="divider"></div> -->
+        <div class="user-panel  d-flex">
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-3 mb-4">
+
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <li class="nav-item menu-is-opening menu-open">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa-solid fa-chart-bar"></i>
+                <p>
+                  Reports
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="../../index.html" class="nav-link">
+                    <i class="nav-icon fa-solid fa-house-chimney-crack"></i>
+                    <p>Dashboard</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="../../pages/reports/realTimeReport.html" class="nav-link active">
+                    <i class="nav-icon fa-solid fa-clock-rotate-left"></i>
+                    <p>Real Time Report</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../../pages/reports/dailyReport.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-calendar-week"></i>
+                    <p>Daily Report</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../../pages/reports/shiftReport.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-arrows-rotate"></i>
+                    <p>Shift Report</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../../pages/reports/transactionsReport.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-right-left"></i>
+                    <p>Transactions Report</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../../pages/reports/deliveryReport.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-hand-holding-droplet"></i>
+                    <p>Delivery Report</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa-solid fa-bars-progress"></i>
+                <p>
+                  Management
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="../../pages/management/stations.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-map-location-dot"></i>
+                    <p>Stations</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../../pages/management/stationPrices.html" class="nav-link">
+                    <i class="nav-icon fa-solid fa-file-invoice-dollar"></i>
+                    <p>Change price</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../../pages/management/delivery.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-truck-ramp-box"></i>
+                    <p>Delivery</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../../pages/management/tanks.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-boxes-stacked"></i>
+                    <p>Tanks</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../../pages/management/transactions.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-file-waveform"></i>
+                    <p>Transactions</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../../pages/management/nozzles.html" class="nav-link ">
+                    <i class="nav-icon fa-brands fa-hubspot"></i>
+                    <p>Nozzles</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../../pages/management/cities.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-city"></i>
+                    <p>Cities</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../../pages/management/dispensers.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-gas-pump"></i>
+                    <p>Dispensers</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../../pages/management/employees.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-users-gear"></i>
+                    <p>Employees</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item ">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa-solid fa-user-gear"></i>
+                <p>
+                  User Management
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="../../pages/users/listUsers.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-users-gear"></i>
+                    <p>Users</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+    <!-- /.Main Sidebar Container -->
+
+    <!-- /.SHARED -->
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Main content -->
+      <div class="content pt-3">
+        <div class="container-fluid ">
+
+
+
+
+          <div class="row rowReverseInRtl">
+            <div class="col-xl-9 col-lg-8 col-md-7 mb-3 mb-md-0">
+              <!-- filtering -->
+              <div class="card mb-0">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title">Filter stations</h3>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="card-body pt-half">
+                  <form action="">
+                    <div class="form-group mb-2">
+                      <label for="stationa">Station</label>
+                      <select id="stationa" class="select2" multiple="multiple" data-placeholder="Select Station"
+                        style="width: 100%;">
+                        <option>bathaa</option>
+                        <option>skoop</option>
+                        <option>sasko</option>
+                        <option>kahtany</option>
+
+                      </select>
+                    </div>
+
+                    <div class="form-group mb-2">
+                      <label>Station</label>
+                      <select class="form-control select2" style="width: 100%;">
+                        <option selected="selected">All</option>
+                        <option>bathaa</option>
+                        <option>skoop</option>
+                        <option>sasko</option>
+                        <option>kahtany</option>
+
+                      </select>
+                    </div>
+
+                    <button type="submit" class="brimaryBtn">Select</button>
+                  </form>
+                </div>
+              </div>
+
+              <!-- start DISPENSERS -->
+              <div class="card mt-3 mb-0">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title">Dispensers</h3>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="card-body pt-half">
+                  <div class="row">
+                    <div class="col-xl-4 col-lg-6 d-flex justify-content-center">
+                      <div class="disp" id="disp1">
+                        <div class="disp__box">
+                          <div class="disp__logo">
+                            <img src="../../dist/img/dispLogo.png" alt="">
+                          </div>
+                          <div class="disp__box--circle disp__box--circle1"></div>
+                          <div class="disp__box--circle disp__box--circle2"></div>
+                          <div class="disp__box--circle disp__box--circle3"></div>
+                        </div>
+                        <div class="disp__footer"></div>
+
+                        <div class="disp__column disp__column--left">
+                          <div class="disp__3dFace"></div>
+                          <div class="disp__3dLeft"></div>
+                          <div class="disp__3dTop"></div>
+                          <div class="disp__3dBottom"></div>
+                          <!-- nozzles -->
+                          <div id="disp1Nozzle1" class="disp__nozzle disp__nozzle--diesel disp__nozzle--1st">
+                            <svg viewBox="0 0 94 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_2_23)">
+                                <path
+                                  d="M24 152C24 153.591 24.7977 155.117 26.2176 156.243C27.6375 157.368 29.5634 158 31.5714 158H69.4286C71.4366 158 73.3625 157.368 74.7824 156.243C76.2023 155.117 77 153.591 77 152C77 150.409 76.2023 148.883 74.7824 147.757C73.3625 146.632 71.4366 146 69.4286 146H31.5714C29.5634 146 27.6375 146.632 26.2176 147.757C24.7977 148.883 24 150.409 24 152Z"
+                                  fill="#8E8E8E" />
+                                <path
+                                  d="M44.9155 289.521C51.6232 289.521 58.0702 286.281 62.6041 280.631C67.4489 274.594 70.0093 266.14 70.0093 256.183C70.0093 241.938 63.7425 228.365 56.1321 214.353C70.6924 205.023 86.9188 200.825 96.9608 200.825V191.47C83.2891 191.47 65.849 197.165 51.595 206.155L51.4915 205.969C41.8997 188.799 31.9815 171.045 31.9815 152.326H22.6283C22.6283 173.481 33.1505 192.317 43.326 210.532L43.9079 211.574C28.2332 223.924 19.6745 239.639 19.6745 256.312C19.6745 266.183 22.2585 274.591 27.148 280.629C31.7242 286.28 38.1999 289.521 44.9155 289.521ZM48.4855 219.88C55.2341 232.417 60.6561 244.441 60.6561 256.183C60.6561 267.734 55.7304 280.166 44.9155 280.166C37.2638 280.166 29.0287 272.701 29.0287 256.312C29.0287 246.65 32.5629 232.873 48.4855 219.88Z"
+                                  fill="#8E8E8E" />
+
+                              </g>
+                              <g class="handle">
+                                <path
+                                  d="M36.2901 154.803L19.0501 157.901L17.0414 146.714L34.2787 143.614L36.2901 154.803ZM32.7327 68.993L54.9315 34.7395C56.5794 32.2133 58.674 30.0126 61.1172 28.2773C68.7244 22.8854 76.0005 19.1775 79.6515 15.7365C84.4041 11.2577 76.9426 0.564629 70.8437 4.15464C66.0614 6.98654 58.0136 12.0494 50.5922 17.7188C48.4202 19.3559 46.5739 21.3687 45.0887 23.6714L21.7677 59.6661L32.7327 68.993Z"
+                                  fill="#9E9E9E" />
+                                <path
+                                  d="M19.0867 91.1666L47.0142 87.4257L54.2573 122.657C55.3735 128.846 52.4439 130.4 46.9703 131.391L27.1274 135.413M15.0502 89.7047L34.7556 145.002L57.4615 140.361C66.975 138.306 67.2525 130.689 66.222 124.948L57.733 82.0496L15.0502 89.7047Z"
+                                  fill="#757575" />
+                                <path class="whole"
+                                  d="M31.7717 43.2839L45.4308 52.303C47.255 53.4901 47.7879 55.9071 46.6865 57.7672L43.4492 63.2349L49.6697 68.6704C54.0083 72.447 56.9178 77.6 57.9107 83.2665L58.4813 86.391L37.7743 90.1756C35.6892 90.5736 33.8464 91.7811 32.6487 93.5342C31.451 95.2872 30.9959 97.4432 31.3828 99.5308L38.1362 137.107C38.7884 141.147 38.7893 144.437 34.7243 145.029L18.2221 147.908C14.3052 148.482 10.6462 145.842 9.9543 141.946L1.79633 96.4572C-1.86357 76.0778 6.44877 69.855 8.31979 66.6691C10.1908 63.4833 19.4208 55.0936 19.4208 55.0936L26.0749 44.5234C27.2993 42.5839 29.8639 42.0321 31.7717 43.2839V43.2839Z" />
+                                <path d="M38.7697 67.9245L25.161 59.8488" class="mark" stroke-width="4"
+                                  stroke-miterlimit="10" stroke-linecap="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_2_23">
+                                  <rect width="94" height="290" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+
+                            <div class="disp__operation">
+                              <div>
+                                <span>L/&nbsp;</span>
+                                <span class="disp__litre"></span>
+                              </div>
+                              <div>
+                                <span>P/&nbsp;$</span>
+                                <span class="disp__price"></span>
+                              </div>
+                              <div>
+                                <span>A/&nbsp;$</span>
+                                <span class="disp__amount"></span>
+                              </div>
+                            </div>
+
+                          </div>
+                          <div id="disp1Nozzle2" class="disp__nozzle disp__nozzle--petrol91 disp__nozzle--2nd">
+                            <svg viewBox="0 0 94 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_2_23)">
+                                <path
+                                  d="M24 152C24 153.591 24.7977 155.117 26.2176 156.243C27.6375 157.368 29.5634 158 31.5714 158H69.4286C71.4366 158 73.3625 157.368 74.7824 156.243C76.2023 155.117 77 153.591 77 152C77 150.409 76.2023 148.883 74.7824 147.757C73.3625 146.632 71.4366 146 69.4286 146H31.5714C29.5634 146 27.6375 146.632 26.2176 147.757C24.7977 148.883 24 150.409 24 152Z"
+                                  fill="#8E8E8E" />
+                                <path
+                                  d="M44.9155 289.521C51.6232 289.521 58.0702 286.281 62.6041 280.631C67.4489 274.594 70.0093 266.14 70.0093 256.183C70.0093 241.938 63.7425 228.365 56.1321 214.353C70.6924 205.023 86.9188 200.825 96.9608 200.825V191.47C83.2891 191.47 65.849 197.165 51.595 206.155L51.4915 205.969C41.8997 188.799 31.9815 171.045 31.9815 152.326H22.6283C22.6283 173.481 33.1505 192.317 43.326 210.532L43.9079 211.574C28.2332 223.924 19.6745 239.639 19.6745 256.312C19.6745 266.183 22.2585 274.591 27.148 280.629C31.7242 286.28 38.1999 289.521 44.9155 289.521ZM48.4855 219.88C55.2341 232.417 60.6561 244.441 60.6561 256.183C60.6561 267.734 55.7304 280.166 44.9155 280.166C37.2638 280.166 29.0287 272.701 29.0287 256.312C29.0287 246.65 32.5629 232.873 48.4855 219.88Z"
+                                  fill="#8E8E8E" />
+
+                              </g>
+                              <g class="handle">
+                                <path
+                                  d="M36.2901 154.803L19.0501 157.901L17.0414 146.714L34.2787 143.614L36.2901 154.803ZM32.7327 68.993L54.9315 34.7395C56.5794 32.2133 58.674 30.0126 61.1172 28.2773C68.7244 22.8854 76.0005 19.1775 79.6515 15.7365C84.4041 11.2577 76.9426 0.564629 70.8437 4.15464C66.0614 6.98654 58.0136 12.0494 50.5922 17.7188C48.4202 19.3559 46.5739 21.3687 45.0887 23.6714L21.7677 59.6661L32.7327 68.993Z"
+                                  fill="#9E9E9E" />
+                                <path
+                                  d="M19.0867 91.1666L47.0142 87.4257L54.2573 122.657C55.3735 128.846 52.4439 130.4 46.9703 131.391L27.1274 135.413M15.0502 89.7047L34.7556 145.002L57.4615 140.361C66.975 138.306 67.2525 130.689 66.222 124.948L57.733 82.0496L15.0502 89.7047Z"
+                                  fill="#757575" />
+                                <path class="whole"
+                                  d="M31.7717 43.2839L45.4308 52.303C47.255 53.4901 47.7879 55.9071 46.6865 57.7672L43.4492 63.2349L49.6697 68.6704C54.0083 72.447 56.9178 77.6 57.9107 83.2665L58.4813 86.391L37.7743 90.1756C35.6892 90.5736 33.8464 91.7811 32.6487 93.5342C31.451 95.2872 30.9959 97.4432 31.3828 99.5308L38.1362 137.107C38.7884 141.147 38.7893 144.437 34.7243 145.029L18.2221 147.908C14.3052 148.482 10.6462 145.842 9.9543 141.946L1.79633 96.4572C-1.86357 76.0778 6.44877 69.855 8.31979 66.6691C10.1908 63.4833 19.4208 55.0936 19.4208 55.0936L26.0749 44.5234C27.2993 42.5839 29.8639 42.0321 31.7717 43.2839V43.2839Z" />
+                                <path d="M38.7697 67.9245L25.161 59.8488" class="mark" stroke-width="4"
+                                  stroke-miterlimit="10" stroke-linecap="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_2_23">
+                                  <rect width="94" height="290" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+
+                            <div class="disp__operation">
+                              <div>
+                                <span>L/&nbsp;</span>
+                                <span class="disp__litre"></span>
+                              </div>
+                              <div>
+                                <span>P/&nbsp;$</span>
+                                <span class="disp__price"></span>
+                              </div>
+                              <div>
+                                <span>A/&nbsp;$</span>
+                                <span class="disp__amount"></span>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="disp1Nozzle3" class="disp__nozzle disp__nozzle--petrol95 disp__nozzle--3rd">
+                            <svg viewBox="0 0 94 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_2_23)">
+                                <path
+                                  d="M24 152C24 153.591 24.7977 155.117 26.2176 156.243C27.6375 157.368 29.5634 158 31.5714 158H69.4286C71.4366 158 73.3625 157.368 74.7824 156.243C76.2023 155.117 77 153.591 77 152C77 150.409 76.2023 148.883 74.7824 147.757C73.3625 146.632 71.4366 146 69.4286 146H31.5714C29.5634 146 27.6375 146.632 26.2176 147.757C24.7977 148.883 24 150.409 24 152Z"
+                                  fill="#8E8E8E" />
+                                <path
+                                  d="M44.9155 289.521C51.6232 289.521 58.0702 286.281 62.6041 280.631C67.4489 274.594 70.0093 266.14 70.0093 256.183C70.0093 241.938 63.7425 228.365 56.1321 214.353C70.6924 205.023 86.9188 200.825 96.9608 200.825V191.47C83.2891 191.47 65.849 197.165 51.595 206.155L51.4915 205.969C41.8997 188.799 31.9815 171.045 31.9815 152.326H22.6283C22.6283 173.481 33.1505 192.317 43.326 210.532L43.9079 211.574C28.2332 223.924 19.6745 239.639 19.6745 256.312C19.6745 266.183 22.2585 274.591 27.148 280.629C31.7242 286.28 38.1999 289.521 44.9155 289.521ZM48.4855 219.88C55.2341 232.417 60.6561 244.441 60.6561 256.183C60.6561 267.734 55.7304 280.166 44.9155 280.166C37.2638 280.166 29.0287 272.701 29.0287 256.312C29.0287 246.65 32.5629 232.873 48.4855 219.88Z"
+                                  fill="#8E8E8E" />
+
+                              </g>
+                              <g class="handle">
+                                <path
+                                  d="M36.2901 154.803L19.0501 157.901L17.0414 146.714L34.2787 143.614L36.2901 154.803ZM32.7327 68.993L54.9315 34.7395C56.5794 32.2133 58.674 30.0126 61.1172 28.2773C68.7244 22.8854 76.0005 19.1775 79.6515 15.7365C84.4041 11.2577 76.9426 0.564629 70.8437 4.15464C66.0614 6.98654 58.0136 12.0494 50.5922 17.7188C48.4202 19.3559 46.5739 21.3687 45.0887 23.6714L21.7677 59.6661L32.7327 68.993Z"
+                                  fill="#9E9E9E" />
+                                <path
+                                  d="M19.0867 91.1666L47.0142 87.4257L54.2573 122.657C55.3735 128.846 52.4439 130.4 46.9703 131.391L27.1274 135.413M15.0502 89.7047L34.7556 145.002L57.4615 140.361C66.975 138.306 67.2525 130.689 66.222 124.948L57.733 82.0496L15.0502 89.7047Z"
+                                  fill="#757575" />
+                                <path class="whole"
+                                  d="M31.7717 43.2839L45.4308 52.303C47.255 53.4901 47.7879 55.9071 46.6865 57.7672L43.4492 63.2349L49.6697 68.6704C54.0083 72.447 56.9178 77.6 57.9107 83.2665L58.4813 86.391L37.7743 90.1756C35.6892 90.5736 33.8464 91.7811 32.6487 93.5342C31.451 95.2872 30.9959 97.4432 31.3828 99.5308L38.1362 137.107C38.7884 141.147 38.7893 144.437 34.7243 145.029L18.2221 147.908C14.3052 148.482 10.6462 145.842 9.9543 141.946L1.79633 96.4572C-1.86357 76.0778 6.44877 69.855 8.31979 66.6691C10.1908 63.4833 19.4208 55.0936 19.4208 55.0936L26.0749 44.5234C27.2993 42.5839 29.8639 42.0321 31.7717 43.2839V43.2839Z" />
+                                <path d="M38.7697 67.9245L25.161 59.8488" class="mark" stroke-width="4"
+                                  stroke-miterlimit="10" stroke-linecap="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_2_23">
+                                  <rect width="94" height="290" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+
+                            <div class="disp__operation">
+                              <div>
+                                <span>L/&nbsp;</span>
+                                <span class="disp__litre"></span>
+                              </div>
+                              <div>
+                                <span>P/&nbsp;$</span>
+                                <span class="disp__price"></span>
+                              </div>
+                              <div>
+                                <span>A/&nbsp;$</span>
+                                <span class="disp__amount"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="disp__column disp__column--right">
+                          <div class="disp__3dFace"></div>
+                          <div class="disp__3dLeft"></div>
+                          <div class="disp__3dTop"></div>
+                          <div class="disp__3dBottom"></div>
+
+                          <!-- nozzles -->
+                          <div id="disp1Nozzle4" class="disp__nozzle disp__nozzle--diesel disp__nozzle--1st">
+                            <svg viewBox="0 0 94 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_3_106)">
+                                <path
+                                  d="M70 152C70 153.591 69.2023 155.117 67.7824 156.243C66.3625 157.368 64.4366 158 62.4286 158H24.5714C22.5634 158 20.6375 157.368 19.2176 156.243C17.7977 155.117 17 153.591 17 152C17 150.409 17.7977 148.883 19.2176 147.757C20.6375 146.632 22.5634 146 24.5714 146H62.4286C64.4366 146 66.3625 146.632 67.7824 147.757C69.2023 148.883 70 150.409 70 152Z"
+                                  fill="#8E8E8E" />
+                                <path
+                                  d="M49.0845 289.521C42.3768 289.521 35.9298 286.281 31.3959 280.631C26.5511 274.594 23.9907 266.14 23.9907 256.183C23.9907 241.938 30.2575 228.365 37.8679 214.353C23.3076 205.023 7.08118 200.825 -2.96075 200.825V191.47C10.7109 191.47 28.151 197.165 42.405 206.155L42.5085 205.969C52.1003 188.799 62.0185 171.045 62.0185 152.326H71.3717C71.3717 173.481 60.8495 192.317 50.674 210.532L50.0921 211.574C65.7668 223.924 74.3255 239.639 74.3255 256.312C74.3255 266.183 71.7415 274.591 66.852 280.629C62.2758 286.28 55.8001 289.521 49.0845 289.521ZM45.5145 219.88C38.7659 232.417 33.3439 244.441 33.3439 256.183C33.3439 267.734 38.2696 280.166 49.0845 280.166C56.7362 280.166 64.9713 272.701 64.9713 256.312C64.9713 246.65 61.4371 232.873 45.5145 219.88Z"
+                                  fill="#8E8E8E" />
+
+                              </g>
+                              <g class="handle">
+                                <path
+                                  d="M57.7099 154.803L74.9499 157.901L76.9586 146.714L59.7213 143.614L57.7099 154.803ZM61.2673 68.993L39.0685 34.7395C37.4206 32.2133 35.326 30.0126 32.8828 28.2773C25.2756 22.8854 17.9995 19.1775 14.3485 15.7365C9.59585 11.2577 17.0574 0.564629 23.1563 4.15464C27.9386 6.98654 35.9864 12.0494 43.4078 17.7188C45.5798 19.3559 47.4261 21.3687 48.9113 23.6714L72.2323 59.6661L61.2673 68.993Z"
+                                  fill="#9E9E9E" />
+                                <path
+                                  d="M74.9133 91.1666L46.9858 87.4257L39.7427 122.657C38.6265 128.846 41.5561 130.4 47.0297 131.391L66.8726 135.413M78.9498 89.7047L59.2444 145.002L36.5385 140.361C27.025 138.306 26.7475 130.689 27.778 124.948L36.2671 82.0496L78.9498 89.7047Z"
+                                  fill="#757575" />
+                                <path class="whole"
+                                  d="M62.2283 43.2839L48.5692 52.303C46.745 53.4901 46.2121 55.9071 47.3135 57.7672L50.5508 63.2349L44.3303 68.6704C39.9917 72.447 37.0822 77.6 36.0893 83.2665L35.5187 86.391L56.2257 90.1756C58.3108 90.5736 60.1536 91.7811 61.3513 93.5342C62.549 95.2872 63.0041 97.4432 62.6172 99.5308L55.8638 137.107C55.2116 141.147 55.2107 144.437 59.2757 145.029L75.7779 147.908C79.6948 148.482 83.3538 145.842 84.0457 141.946L92.2037 96.4572C95.8636 76.0778 87.5512 69.855 85.6802 66.6691C83.8092 63.4833 74.5792 55.0936 74.5792 55.0936L67.9251 44.5234C66.7007 42.5839 64.1361 42.0321 62.2283 43.2839V43.2839Z" />
+                                <path d="M55.2303 67.9245L68.839 59.8488" class="mark" stroke-width="4"
+                                  stroke-miterlimit="10" stroke-linecap="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_3_106">
+                                  <rect width="94" height="290" fill="white" transform="matrix(-1 0 0 1 94 0)" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+
+                            <div class="disp__operation">
+                              <div>
+                                <span>L/&nbsp;</span>
+                                <span class="disp__litre"></span>
+                              </div>
+                              <div>
+                                <span>P/&nbsp;$</span>
+                                <span class="disp__price"></span>
+                              </div>
+                              <div>
+                                <span>A/&nbsp;$</span>
+                                <span class="disp__amount"></span>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="disp1Nozzle5" class="disp__nozzle disp__nozzle--petrol91 disp__nozzle--2nd">
+                            <svg viewBox="0 0 94 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_3_106)">
+                                <path
+                                  d="M70 152C70 153.591 69.2023 155.117 67.7824 156.243C66.3625 157.368 64.4366 158 62.4286 158H24.5714C22.5634 158 20.6375 157.368 19.2176 156.243C17.7977 155.117 17 153.591 17 152C17 150.409 17.7977 148.883 19.2176 147.757C20.6375 146.632 22.5634 146 24.5714 146H62.4286C64.4366 146 66.3625 146.632 67.7824 147.757C69.2023 148.883 70 150.409 70 152Z"
+                                  fill="#8E8E8E" />
+                                <path
+                                  d="M49.0845 289.521C42.3768 289.521 35.9298 286.281 31.3959 280.631C26.5511 274.594 23.9907 266.14 23.9907 256.183C23.9907 241.938 30.2575 228.365 37.8679 214.353C23.3076 205.023 7.08118 200.825 -2.96075 200.825V191.47C10.7109 191.47 28.151 197.165 42.405 206.155L42.5085 205.969C52.1003 188.799 62.0185 171.045 62.0185 152.326H71.3717C71.3717 173.481 60.8495 192.317 50.674 210.532L50.0921 211.574C65.7668 223.924 74.3255 239.639 74.3255 256.312C74.3255 266.183 71.7415 274.591 66.852 280.629C62.2758 286.28 55.8001 289.521 49.0845 289.521ZM45.5145 219.88C38.7659 232.417 33.3439 244.441 33.3439 256.183C33.3439 267.734 38.2696 280.166 49.0845 280.166C56.7362 280.166 64.9713 272.701 64.9713 256.312C64.9713 246.65 61.4371 232.873 45.5145 219.88Z"
+                                  fill="#8E8E8E" />
+
+                              </g>
+                              <g class="handle">
+                                <path
+                                  d="M57.7099 154.803L74.9499 157.901L76.9586 146.714L59.7213 143.614L57.7099 154.803ZM61.2673 68.993L39.0685 34.7395C37.4206 32.2133 35.326 30.0126 32.8828 28.2773C25.2756 22.8854 17.9995 19.1775 14.3485 15.7365C9.59585 11.2577 17.0574 0.564629 23.1563 4.15464C27.9386 6.98654 35.9864 12.0494 43.4078 17.7188C45.5798 19.3559 47.4261 21.3687 48.9113 23.6714L72.2323 59.6661L61.2673 68.993Z"
+                                  fill="#9E9E9E" />
+                                <path
+                                  d="M74.9133 91.1666L46.9858 87.4257L39.7427 122.657C38.6265 128.846 41.5561 130.4 47.0297 131.391L66.8726 135.413M78.9498 89.7047L59.2444 145.002L36.5385 140.361C27.025 138.306 26.7475 130.689 27.778 124.948L36.2671 82.0496L78.9498 89.7047Z"
+                                  fill="#757575" />
+                                <path class="whole"
+                                  d="M62.2283 43.2839L48.5692 52.303C46.745 53.4901 46.2121 55.9071 47.3135 57.7672L50.5508 63.2349L44.3303 68.6704C39.9917 72.447 37.0822 77.6 36.0893 83.2665L35.5187 86.391L56.2257 90.1756C58.3108 90.5736 60.1536 91.7811 61.3513 93.5342C62.549 95.2872 63.0041 97.4432 62.6172 99.5308L55.8638 137.107C55.2116 141.147 55.2107 144.437 59.2757 145.029L75.7779 147.908C79.6948 148.482 83.3538 145.842 84.0457 141.946L92.2037 96.4572C95.8636 76.0778 87.5512 69.855 85.6802 66.6691C83.8092 63.4833 74.5792 55.0936 74.5792 55.0936L67.9251 44.5234C66.7007 42.5839 64.1361 42.0321 62.2283 43.2839V43.2839Z" />
+                                <path d="M55.2303 67.9245L68.839 59.8488" class="mark" stroke-width="4"
+                                  stroke-miterlimit="10" stroke-linecap="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_3_106">
+                                  <rect width="94" height="290" fill="white" transform="matrix(-1 0 0 1 94 0)" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+
+                            <div class="disp__operation">
+                              <div>
+                                <span>L/&nbsp;</span>
+                                <span class="disp__litre"></span>
+                              </div>
+                              <div>
+                                <span>P/&nbsp;$</span>
+                                <span class="disp__price"></span>
+                              </div>
+                              <div>
+                                <span>A/&nbsp;$</span>
+                                <span class="disp__amount"></span>
+                              </div>
+                            </div>
+
+                          </div>
+                          <div id="disp1Nozzle6" class="disp__nozzle disp__nozzle--petrol95 disp__nozzle--3rd">
+                            <svg viewBox="0 0 94 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_3_106)">
+                                <path
+                                  d="M70 152C70 153.591 69.2023 155.117 67.7824 156.243C66.3625 157.368 64.4366 158 62.4286 158H24.5714C22.5634 158 20.6375 157.368 19.2176 156.243C17.7977 155.117 17 153.591 17 152C17 150.409 17.7977 148.883 19.2176 147.757C20.6375 146.632 22.5634 146 24.5714 146H62.4286C64.4366 146 66.3625 146.632 67.7824 147.757C69.2023 148.883 70 150.409 70 152Z"
+                                  fill="#8E8E8E" />
+                                <path
+                                  d="M49.0845 289.521C42.3768 289.521 35.9298 286.281 31.3959 280.631C26.5511 274.594 23.9907 266.14 23.9907 256.183C23.9907 241.938 30.2575 228.365 37.8679 214.353C23.3076 205.023 7.08118 200.825 -2.96075 200.825V191.47C10.7109 191.47 28.151 197.165 42.405 206.155L42.5085 205.969C52.1003 188.799 62.0185 171.045 62.0185 152.326H71.3717C71.3717 173.481 60.8495 192.317 50.674 210.532L50.0921 211.574C65.7668 223.924 74.3255 239.639 74.3255 256.312C74.3255 266.183 71.7415 274.591 66.852 280.629C62.2758 286.28 55.8001 289.521 49.0845 289.521ZM45.5145 219.88C38.7659 232.417 33.3439 244.441 33.3439 256.183C33.3439 267.734 38.2696 280.166 49.0845 280.166C56.7362 280.166 64.9713 272.701 64.9713 256.312C64.9713 246.65 61.4371 232.873 45.5145 219.88Z"
+                                  fill="#8E8E8E" />
+
+                              </g>
+                              <g class="handle">
+                                <path
+                                  d="M57.7099 154.803L74.9499 157.901L76.9586 146.714L59.7213 143.614L57.7099 154.803ZM61.2673 68.993L39.0685 34.7395C37.4206 32.2133 35.326 30.0126 32.8828 28.2773C25.2756 22.8854 17.9995 19.1775 14.3485 15.7365C9.59585 11.2577 17.0574 0.564629 23.1563 4.15464C27.9386 6.98654 35.9864 12.0494 43.4078 17.7188C45.5798 19.3559 47.4261 21.3687 48.9113 23.6714L72.2323 59.6661L61.2673 68.993Z"
+                                  fill="#9E9E9E" />
+                                <path
+                                  d="M74.9133 91.1666L46.9858 87.4257L39.7427 122.657C38.6265 128.846 41.5561 130.4 47.0297 131.391L66.8726 135.413M78.9498 89.7047L59.2444 145.002L36.5385 140.361C27.025 138.306 26.7475 130.689 27.778 124.948L36.2671 82.0496L78.9498 89.7047Z"
+                                  fill="#757575" />
+                                <path class="whole"
+                                  d="M62.2283 43.2839L48.5692 52.303C46.745 53.4901 46.2121 55.9071 47.3135 57.7672L50.5508 63.2349L44.3303 68.6704C39.9917 72.447 37.0822 77.6 36.0893 83.2665L35.5187 86.391L56.2257 90.1756C58.3108 90.5736 60.1536 91.7811 61.3513 93.5342C62.549 95.2872 63.0041 97.4432 62.6172 99.5308L55.8638 137.107C55.2116 141.147 55.2107 144.437 59.2757 145.029L75.7779 147.908C79.6948 148.482 83.3538 145.842 84.0457 141.946L92.2037 96.4572C95.8636 76.0778 87.5512 69.855 85.6802 66.6691C83.8092 63.4833 74.5792 55.0936 74.5792 55.0936L67.9251 44.5234C66.7007 42.5839 64.1361 42.0321 62.2283 43.2839V43.2839Z" />
+                                <path d="M55.2303 67.9245L68.839 59.8488" class="mark" stroke-width="4"
+                                  stroke-miterlimit="10" stroke-linecap="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_3_106">
+                                  <rect width="94" height="290" fill="white" transform="matrix(-1 0 0 1 94 0)" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                            <div class="disp__operation">
+                              <div>
+                                <span>L/&nbsp;</span>
+                                <span class="disp__litre"></span>
+                              </div>
+                              <div>
+                                <span>P/&nbsp;$</span>
+                                <span class="disp__price"></span>
+                              </div>
+                              <div>
+                                <span>A/&nbsp;$</span>
+                                <span class="disp__amount"></span>
+                              </div>
+                            </div>
+
+
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 d-flex justify-content-center">
+                      <div class="disp" id="disp2">
+                        <div class="disp__box">
+                          <div class="disp__logo">
+                            <img src="../../dist/img/dispLogo.png" alt="">
+                          </div>
+                          <div class="disp__box--circle disp__box--circle1"></div>
+                          <div class="disp__box--circle disp__box--circle2"></div>
+                          <div class="disp__box--circle disp__box--circle3"></div>
+                        </div>
+                        <div class="disp__footer"></div>
+
+                        <div class="disp__column disp__column--left">
+                          <div class="disp__3dFace"></div>
+                          <div class="disp__3dLeft"></div>
+                          <div class="disp__3dTop"></div>
+                          <div class="disp__3dBottom"></div>
+                          <!-- nozzles -->
+                          <div id="disp2Nozzle1" class="disp__nozzle disp__nozzle--diesel disp__nozzle--1st">
+                            <svg viewBox="0 0 94 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_2_23)">
+                                <path
+                                  d="M24 152C24 153.591 24.7977 155.117 26.2176 156.243C27.6375 157.368 29.5634 158 31.5714 158H69.4286C71.4366 158 73.3625 157.368 74.7824 156.243C76.2023 155.117 77 153.591 77 152C77 150.409 76.2023 148.883 74.7824 147.757C73.3625 146.632 71.4366 146 69.4286 146H31.5714C29.5634 146 27.6375 146.632 26.2176 147.757C24.7977 148.883 24 150.409 24 152Z"
+                                  fill="#8E8E8E" />
+                                <path
+                                  d="M44.9155 289.521C51.6232 289.521 58.0702 286.281 62.6041 280.631C67.4489 274.594 70.0093 266.14 70.0093 256.183C70.0093 241.938 63.7425 228.365 56.1321 214.353C70.6924 205.023 86.9188 200.825 96.9608 200.825V191.47C83.2891 191.47 65.849 197.165 51.595 206.155L51.4915 205.969C41.8997 188.799 31.9815 171.045 31.9815 152.326H22.6283C22.6283 173.481 33.1505 192.317 43.326 210.532L43.9079 211.574C28.2332 223.924 19.6745 239.639 19.6745 256.312C19.6745 266.183 22.2585 274.591 27.148 280.629C31.7242 286.28 38.1999 289.521 44.9155 289.521ZM48.4855 219.88C55.2341 232.417 60.6561 244.441 60.6561 256.183C60.6561 267.734 55.7304 280.166 44.9155 280.166C37.2638 280.166 29.0287 272.701 29.0287 256.312C29.0287 246.65 32.5629 232.873 48.4855 219.88Z"
+                                  fill="#8E8E8E" />
+
+                              </g>
+                              <g class="handle">
+                                <path
+                                  d="M36.2901 154.803L19.0501 157.901L17.0414 146.714L34.2787 143.614L36.2901 154.803ZM32.7327 68.993L54.9315 34.7395C56.5794 32.2133 58.674 30.0126 61.1172 28.2773C68.7244 22.8854 76.0005 19.1775 79.6515 15.7365C84.4041 11.2577 76.9426 0.564629 70.8437 4.15464C66.0614 6.98654 58.0136 12.0494 50.5922 17.7188C48.4202 19.3559 46.5739 21.3687 45.0887 23.6714L21.7677 59.6661L32.7327 68.993Z"
+                                  fill="#9E9E9E" />
+                                <path
+                                  d="M19.0867 91.1666L47.0142 87.4257L54.2573 122.657C55.3735 128.846 52.4439 130.4 46.9703 131.391L27.1274 135.413M15.0502 89.7047L34.7556 145.002L57.4615 140.361C66.975 138.306 67.2525 130.689 66.222 124.948L57.733 82.0496L15.0502 89.7047Z"
+                                  fill="#757575" />
+                                <path class="whole"
+                                  d="M31.7717 43.2839L45.4308 52.303C47.255 53.4901 47.7879 55.9071 46.6865 57.7672L43.4492 63.2349L49.6697 68.6704C54.0083 72.447 56.9178 77.6 57.9107 83.2665L58.4813 86.391L37.7743 90.1756C35.6892 90.5736 33.8464 91.7811 32.6487 93.5342C31.451 95.2872 30.9959 97.4432 31.3828 99.5308L38.1362 137.107C38.7884 141.147 38.7893 144.437 34.7243 145.029L18.2221 147.908C14.3052 148.482 10.6462 145.842 9.9543 141.946L1.79633 96.4572C-1.86357 76.0778 6.44877 69.855 8.31979 66.6691C10.1908 63.4833 19.4208 55.0936 19.4208 55.0936L26.0749 44.5234C27.2993 42.5839 29.8639 42.0321 31.7717 43.2839V43.2839Z" />
+                                <path d="M38.7697 67.9245L25.161 59.8488" class="mark" stroke-width="4"
+                                  stroke-miterlimit="10" stroke-linecap="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_2_23">
+                                  <rect width="94" height="290" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+
+                            <div class="disp__operation">
+                              <div>
+                                <span>L/&nbsp;</span>
+                                <span class="disp__litre"></span>
+                              </div>
+                              <div>
+                                <span>P/&nbsp;$</span>
+                                <span class="disp__price"></span>
+                              </div>
+                              <div>
+                                <span>A/&nbsp;$</span>
+                                <span class="disp__amount"></span>
+                              </div>
+                            </div>
+
+                          </div>
+                          <div id="disp2Nozzle2" class="disp__nozzle disp__nozzle--petrol91 disp__nozzle--2nd">
+                            <svg viewBox="0 0 94 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_2_23)">
+                                <path
+                                  d="M24 152C24 153.591 24.7977 155.117 26.2176 156.243C27.6375 157.368 29.5634 158 31.5714 158H69.4286C71.4366 158 73.3625 157.368 74.7824 156.243C76.2023 155.117 77 153.591 77 152C77 150.409 76.2023 148.883 74.7824 147.757C73.3625 146.632 71.4366 146 69.4286 146H31.5714C29.5634 146 27.6375 146.632 26.2176 147.757C24.7977 148.883 24 150.409 24 152Z"
+                                  fill="#8E8E8E" />
+                                <path
+                                  d="M44.9155 289.521C51.6232 289.521 58.0702 286.281 62.6041 280.631C67.4489 274.594 70.0093 266.14 70.0093 256.183C70.0093 241.938 63.7425 228.365 56.1321 214.353C70.6924 205.023 86.9188 200.825 96.9608 200.825V191.47C83.2891 191.47 65.849 197.165 51.595 206.155L51.4915 205.969C41.8997 188.799 31.9815 171.045 31.9815 152.326H22.6283C22.6283 173.481 33.1505 192.317 43.326 210.532L43.9079 211.574C28.2332 223.924 19.6745 239.639 19.6745 256.312C19.6745 266.183 22.2585 274.591 27.148 280.629C31.7242 286.28 38.1999 289.521 44.9155 289.521ZM48.4855 219.88C55.2341 232.417 60.6561 244.441 60.6561 256.183C60.6561 267.734 55.7304 280.166 44.9155 280.166C37.2638 280.166 29.0287 272.701 29.0287 256.312C29.0287 246.65 32.5629 232.873 48.4855 219.88Z"
+                                  fill="#8E8E8E" />
+
+                              </g>
+                              <g class="handle">
+                                <path
+                                  d="M36.2901 154.803L19.0501 157.901L17.0414 146.714L34.2787 143.614L36.2901 154.803ZM32.7327 68.993L54.9315 34.7395C56.5794 32.2133 58.674 30.0126 61.1172 28.2773C68.7244 22.8854 76.0005 19.1775 79.6515 15.7365C84.4041 11.2577 76.9426 0.564629 70.8437 4.15464C66.0614 6.98654 58.0136 12.0494 50.5922 17.7188C48.4202 19.3559 46.5739 21.3687 45.0887 23.6714L21.7677 59.6661L32.7327 68.993Z"
+                                  fill="#9E9E9E" />
+                                <path
+                                  d="M19.0867 91.1666L47.0142 87.4257L54.2573 122.657C55.3735 128.846 52.4439 130.4 46.9703 131.391L27.1274 135.413M15.0502 89.7047L34.7556 145.002L57.4615 140.361C66.975 138.306 67.2525 130.689 66.222 124.948L57.733 82.0496L15.0502 89.7047Z"
+                                  fill="#757575" />
+                                <path class="whole"
+                                  d="M31.7717 43.2839L45.4308 52.303C47.255 53.4901 47.7879 55.9071 46.6865 57.7672L43.4492 63.2349L49.6697 68.6704C54.0083 72.447 56.9178 77.6 57.9107 83.2665L58.4813 86.391L37.7743 90.1756C35.6892 90.5736 33.8464 91.7811 32.6487 93.5342C31.451 95.2872 30.9959 97.4432 31.3828 99.5308L38.1362 137.107C38.7884 141.147 38.7893 144.437 34.7243 145.029L18.2221 147.908C14.3052 148.482 10.6462 145.842 9.9543 141.946L1.79633 96.4572C-1.86357 76.0778 6.44877 69.855 8.31979 66.6691C10.1908 63.4833 19.4208 55.0936 19.4208 55.0936L26.0749 44.5234C27.2993 42.5839 29.8639 42.0321 31.7717 43.2839V43.2839Z" />
+                                <path d="M38.7697 67.9245L25.161 59.8488" class="mark" stroke-width="4"
+                                  stroke-miterlimit="10" stroke-linecap="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_2_23">
+                                  <rect width="94" height="290" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+
+                            <div class="disp__operation">
+                              <div>
+                                <span>L/&nbsp;</span>
+                                <span class="disp__litre"></span>
+                              </div>
+                              <div>
+                                <span>P/&nbsp;$</span>
+                                <span class="disp__price"></span>
+                              </div>
+                              <div>
+                                <span>A/&nbsp;$</span>
+                                <span class="disp__amount"></span>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="disp2Nozzle3" class="disp__nozzle disp__nozzle--petrol95 disp__nozzle--3rd">
+                            <svg viewBox="0 0 94 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_2_23)">
+                                <path
+                                  d="M24 152C24 153.591 24.7977 155.117 26.2176 156.243C27.6375 157.368 29.5634 158 31.5714 158H69.4286C71.4366 158 73.3625 157.368 74.7824 156.243C76.2023 155.117 77 153.591 77 152C77 150.409 76.2023 148.883 74.7824 147.757C73.3625 146.632 71.4366 146 69.4286 146H31.5714C29.5634 146 27.6375 146.632 26.2176 147.757C24.7977 148.883 24 150.409 24 152Z"
+                                  fill="#8E8E8E" />
+                                <path
+                                  d="M44.9155 289.521C51.6232 289.521 58.0702 286.281 62.6041 280.631C67.4489 274.594 70.0093 266.14 70.0093 256.183C70.0093 241.938 63.7425 228.365 56.1321 214.353C70.6924 205.023 86.9188 200.825 96.9608 200.825V191.47C83.2891 191.47 65.849 197.165 51.595 206.155L51.4915 205.969C41.8997 188.799 31.9815 171.045 31.9815 152.326H22.6283C22.6283 173.481 33.1505 192.317 43.326 210.532L43.9079 211.574C28.2332 223.924 19.6745 239.639 19.6745 256.312C19.6745 266.183 22.2585 274.591 27.148 280.629C31.7242 286.28 38.1999 289.521 44.9155 289.521ZM48.4855 219.88C55.2341 232.417 60.6561 244.441 60.6561 256.183C60.6561 267.734 55.7304 280.166 44.9155 280.166C37.2638 280.166 29.0287 272.701 29.0287 256.312C29.0287 246.65 32.5629 232.873 48.4855 219.88Z"
+                                  fill="#8E8E8E" />
+
+                              </g>
+                              <g class="handle">
+                                <path
+                                  d="M36.2901 154.803L19.0501 157.901L17.0414 146.714L34.2787 143.614L36.2901 154.803ZM32.7327 68.993L54.9315 34.7395C56.5794 32.2133 58.674 30.0126 61.1172 28.2773C68.7244 22.8854 76.0005 19.1775 79.6515 15.7365C84.4041 11.2577 76.9426 0.564629 70.8437 4.15464C66.0614 6.98654 58.0136 12.0494 50.5922 17.7188C48.4202 19.3559 46.5739 21.3687 45.0887 23.6714L21.7677 59.6661L32.7327 68.993Z"
+                                  fill="#9E9E9E" />
+                                <path
+                                  d="M19.0867 91.1666L47.0142 87.4257L54.2573 122.657C55.3735 128.846 52.4439 130.4 46.9703 131.391L27.1274 135.413M15.0502 89.7047L34.7556 145.002L57.4615 140.361C66.975 138.306 67.2525 130.689 66.222 124.948L57.733 82.0496L15.0502 89.7047Z"
+                                  fill="#757575" />
+                                <path class="whole"
+                                  d="M31.7717 43.2839L45.4308 52.303C47.255 53.4901 47.7879 55.9071 46.6865 57.7672L43.4492 63.2349L49.6697 68.6704C54.0083 72.447 56.9178 77.6 57.9107 83.2665L58.4813 86.391L37.7743 90.1756C35.6892 90.5736 33.8464 91.7811 32.6487 93.5342C31.451 95.2872 30.9959 97.4432 31.3828 99.5308L38.1362 137.107C38.7884 141.147 38.7893 144.437 34.7243 145.029L18.2221 147.908C14.3052 148.482 10.6462 145.842 9.9543 141.946L1.79633 96.4572C-1.86357 76.0778 6.44877 69.855 8.31979 66.6691C10.1908 63.4833 19.4208 55.0936 19.4208 55.0936L26.0749 44.5234C27.2993 42.5839 29.8639 42.0321 31.7717 43.2839V43.2839Z" />
+                                <path d="M38.7697 67.9245L25.161 59.8488" class="mark" stroke-width="4"
+                                  stroke-miterlimit="10" stroke-linecap="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_2_23">
+                                  <rect width="94" height="290" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+
+                            <div class="disp__operation">
+                              <div>
+                                <span>L/&nbsp;</span>
+                                <span class="disp__litre"></span>
+                              </div>
+                              <div>
+                                <span>P/&nbsp;$</span>
+                                <span class="disp__price"></span>
+                              </div>
+                              <div>
+                                <span>A/&nbsp;$</span>
+                                <span class="disp__amount"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="disp__column disp__column--right">
+                          <div class="disp__3dFace"></div>
+                          <div class="disp__3dLeft"></div>
+                          <div class="disp__3dTop"></div>
+                          <div class="disp__3dBottom"></div>
+
+                          <!-- nozzles -->
+                          <div id="disp2Nozzle4" class="disp__nozzle disp__nozzle--diesel disp__nozzle--1st">
+                            <svg viewBox="0 0 94 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_3_106)">
+                                <path
+                                  d="M70 152C70 153.591 69.2023 155.117 67.7824 156.243C66.3625 157.368 64.4366 158 62.4286 158H24.5714C22.5634 158 20.6375 157.368 19.2176 156.243C17.7977 155.117 17 153.591 17 152C17 150.409 17.7977 148.883 19.2176 147.757C20.6375 146.632 22.5634 146 24.5714 146H62.4286C64.4366 146 66.3625 146.632 67.7824 147.757C69.2023 148.883 70 150.409 70 152Z"
+                                  fill="#8E8E8E" />
+                                <path
+                                  d="M49.0845 289.521C42.3768 289.521 35.9298 286.281 31.3959 280.631C26.5511 274.594 23.9907 266.14 23.9907 256.183C23.9907 241.938 30.2575 228.365 37.8679 214.353C23.3076 205.023 7.08118 200.825 -2.96075 200.825V191.47C10.7109 191.47 28.151 197.165 42.405 206.155L42.5085 205.969C52.1003 188.799 62.0185 171.045 62.0185 152.326H71.3717C71.3717 173.481 60.8495 192.317 50.674 210.532L50.0921 211.574C65.7668 223.924 74.3255 239.639 74.3255 256.312C74.3255 266.183 71.7415 274.591 66.852 280.629C62.2758 286.28 55.8001 289.521 49.0845 289.521ZM45.5145 219.88C38.7659 232.417 33.3439 244.441 33.3439 256.183C33.3439 267.734 38.2696 280.166 49.0845 280.166C56.7362 280.166 64.9713 272.701 64.9713 256.312C64.9713 246.65 61.4371 232.873 45.5145 219.88Z"
+                                  fill="#8E8E8E" />
+
+                              </g>
+                              <g class="handle">
+                                <path
+                                  d="M57.7099 154.803L74.9499 157.901L76.9586 146.714L59.7213 143.614L57.7099 154.803ZM61.2673 68.993L39.0685 34.7395C37.4206 32.2133 35.326 30.0126 32.8828 28.2773C25.2756 22.8854 17.9995 19.1775 14.3485 15.7365C9.59585 11.2577 17.0574 0.564629 23.1563 4.15464C27.9386 6.98654 35.9864 12.0494 43.4078 17.7188C45.5798 19.3559 47.4261 21.3687 48.9113 23.6714L72.2323 59.6661L61.2673 68.993Z"
+                                  fill="#9E9E9E" />
+                                <path
+                                  d="M74.9133 91.1666L46.9858 87.4257L39.7427 122.657C38.6265 128.846 41.5561 130.4 47.0297 131.391L66.8726 135.413M78.9498 89.7047L59.2444 145.002L36.5385 140.361C27.025 138.306 26.7475 130.689 27.778 124.948L36.2671 82.0496L78.9498 89.7047Z"
+                                  fill="#757575" />
+                                <path class="whole"
+                                  d="M62.2283 43.2839L48.5692 52.303C46.745 53.4901 46.2121 55.9071 47.3135 57.7672L50.5508 63.2349L44.3303 68.6704C39.9917 72.447 37.0822 77.6 36.0893 83.2665L35.5187 86.391L56.2257 90.1756C58.3108 90.5736 60.1536 91.7811 61.3513 93.5342C62.549 95.2872 63.0041 97.4432 62.6172 99.5308L55.8638 137.107C55.2116 141.147 55.2107 144.437 59.2757 145.029L75.7779 147.908C79.6948 148.482 83.3538 145.842 84.0457 141.946L92.2037 96.4572C95.8636 76.0778 87.5512 69.855 85.6802 66.6691C83.8092 63.4833 74.5792 55.0936 74.5792 55.0936L67.9251 44.5234C66.7007 42.5839 64.1361 42.0321 62.2283 43.2839V43.2839Z" />
+                                <path d="M55.2303 67.9245L68.839 59.8488" class="mark" stroke-width="4"
+                                  stroke-miterlimit="10" stroke-linecap="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_3_106">
+                                  <rect width="94" height="290" fill="white" transform="matrix(-1 0 0 1 94 0)" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+
+                            <div class="disp__operation">
+                              <div>
+                                <span>L/&nbsp;</span>
+                                <span class="disp__litre"></span>
+                              </div>
+                              <div>
+                                <span>P/&nbsp;$</span>
+                                <span class="disp__price"></span>
+                              </div>
+                              <div>
+                                <span>A/&nbsp;$</span>
+                                <span class="disp__amount"></span>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="disp2Nozzle5" class="disp__nozzle disp__nozzle--petrol91 disp__nozzle--2nd">
+                            <svg viewBox="0 0 94 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_3_106)">
+                                <path
+                                  d="M70 152C70 153.591 69.2023 155.117 67.7824 156.243C66.3625 157.368 64.4366 158 62.4286 158H24.5714C22.5634 158 20.6375 157.368 19.2176 156.243C17.7977 155.117 17 153.591 17 152C17 150.409 17.7977 148.883 19.2176 147.757C20.6375 146.632 22.5634 146 24.5714 146H62.4286C64.4366 146 66.3625 146.632 67.7824 147.757C69.2023 148.883 70 150.409 70 152Z"
+                                  fill="#8E8E8E" />
+                                <path
+                                  d="M49.0845 289.521C42.3768 289.521 35.9298 286.281 31.3959 280.631C26.5511 274.594 23.9907 266.14 23.9907 256.183C23.9907 241.938 30.2575 228.365 37.8679 214.353C23.3076 205.023 7.08118 200.825 -2.96075 200.825V191.47C10.7109 191.47 28.151 197.165 42.405 206.155L42.5085 205.969C52.1003 188.799 62.0185 171.045 62.0185 152.326H71.3717C71.3717 173.481 60.8495 192.317 50.674 210.532L50.0921 211.574C65.7668 223.924 74.3255 239.639 74.3255 256.312C74.3255 266.183 71.7415 274.591 66.852 280.629C62.2758 286.28 55.8001 289.521 49.0845 289.521ZM45.5145 219.88C38.7659 232.417 33.3439 244.441 33.3439 256.183C33.3439 267.734 38.2696 280.166 49.0845 280.166C56.7362 280.166 64.9713 272.701 64.9713 256.312C64.9713 246.65 61.4371 232.873 45.5145 219.88Z"
+                                  fill="#8E8E8E" />
+
+                              </g>
+                              <g class="handle">
+                                <path
+                                  d="M57.7099 154.803L74.9499 157.901L76.9586 146.714L59.7213 143.614L57.7099 154.803ZM61.2673 68.993L39.0685 34.7395C37.4206 32.2133 35.326 30.0126 32.8828 28.2773C25.2756 22.8854 17.9995 19.1775 14.3485 15.7365C9.59585 11.2577 17.0574 0.564629 23.1563 4.15464C27.9386 6.98654 35.9864 12.0494 43.4078 17.7188C45.5798 19.3559 47.4261 21.3687 48.9113 23.6714L72.2323 59.6661L61.2673 68.993Z"
+                                  fill="#9E9E9E" />
+                                <path
+                                  d="M74.9133 91.1666L46.9858 87.4257L39.7427 122.657C38.6265 128.846 41.5561 130.4 47.0297 131.391L66.8726 135.413M78.9498 89.7047L59.2444 145.002L36.5385 140.361C27.025 138.306 26.7475 130.689 27.778 124.948L36.2671 82.0496L78.9498 89.7047Z"
+                                  fill="#757575" />
+                                <path class="whole"
+                                  d="M62.2283 43.2839L48.5692 52.303C46.745 53.4901 46.2121 55.9071 47.3135 57.7672L50.5508 63.2349L44.3303 68.6704C39.9917 72.447 37.0822 77.6 36.0893 83.2665L35.5187 86.391L56.2257 90.1756C58.3108 90.5736 60.1536 91.7811 61.3513 93.5342C62.549 95.2872 63.0041 97.4432 62.6172 99.5308L55.8638 137.107C55.2116 141.147 55.2107 144.437 59.2757 145.029L75.7779 147.908C79.6948 148.482 83.3538 145.842 84.0457 141.946L92.2037 96.4572C95.8636 76.0778 87.5512 69.855 85.6802 66.6691C83.8092 63.4833 74.5792 55.0936 74.5792 55.0936L67.9251 44.5234C66.7007 42.5839 64.1361 42.0321 62.2283 43.2839V43.2839Z" />
+                                <path d="M55.2303 67.9245L68.839 59.8488" class="mark" stroke-width="4"
+                                  stroke-miterlimit="10" stroke-linecap="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_3_106">
+                                  <rect width="94" height="290" fill="white" transform="matrix(-1 0 0 1 94 0)" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+
+                            <div class="disp__operation">
+                              <div>
+                                <span>L/&nbsp;</span>
+                                <span class="disp__litre"></span>
+                              </div>
+                              <div>
+                                <span>P/&nbsp;$</span>
+                                <span class="disp__price"></span>
+                              </div>
+                              <div>
+                                <span>A/&nbsp;$</span>
+                                <span class="disp__amount"></span>
+                              </div>
+                            </div>
+
+                          </div>
+                          <div id="disp2Nozzle6" class="disp__nozzle disp__nozzle--petrol95 disp__nozzle--3rd">
+                            <svg viewBox="0 0 94 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_3_106)">
+                                <path
+                                  d="M70 152C70 153.591 69.2023 155.117 67.7824 156.243C66.3625 157.368 64.4366 158 62.4286 158H24.5714C22.5634 158 20.6375 157.368 19.2176 156.243C17.7977 155.117 17 153.591 17 152C17 150.409 17.7977 148.883 19.2176 147.757C20.6375 146.632 22.5634 146 24.5714 146H62.4286C64.4366 146 66.3625 146.632 67.7824 147.757C69.2023 148.883 70 150.409 70 152Z"
+                                  fill="#8E8E8E" />
+                                <path
+                                  d="M49.0845 289.521C42.3768 289.521 35.9298 286.281 31.3959 280.631C26.5511 274.594 23.9907 266.14 23.9907 256.183C23.9907 241.938 30.2575 228.365 37.8679 214.353C23.3076 205.023 7.08118 200.825 -2.96075 200.825V191.47C10.7109 191.47 28.151 197.165 42.405 206.155L42.5085 205.969C52.1003 188.799 62.0185 171.045 62.0185 152.326H71.3717C71.3717 173.481 60.8495 192.317 50.674 210.532L50.0921 211.574C65.7668 223.924 74.3255 239.639 74.3255 256.312C74.3255 266.183 71.7415 274.591 66.852 280.629C62.2758 286.28 55.8001 289.521 49.0845 289.521ZM45.5145 219.88C38.7659 232.417 33.3439 244.441 33.3439 256.183C33.3439 267.734 38.2696 280.166 49.0845 280.166C56.7362 280.166 64.9713 272.701 64.9713 256.312C64.9713 246.65 61.4371 232.873 45.5145 219.88Z"
+                                  fill="#8E8E8E" />
+
+                              </g>
+                              <g class="handle">
+                                <path
+                                  d="M57.7099 154.803L74.9499 157.901L76.9586 146.714L59.7213 143.614L57.7099 154.803ZM61.2673 68.993L39.0685 34.7395C37.4206 32.2133 35.326 30.0126 32.8828 28.2773C25.2756 22.8854 17.9995 19.1775 14.3485 15.7365C9.59585 11.2577 17.0574 0.564629 23.1563 4.15464C27.9386 6.98654 35.9864 12.0494 43.4078 17.7188C45.5798 19.3559 47.4261 21.3687 48.9113 23.6714L72.2323 59.6661L61.2673 68.993Z"
+                                  fill="#9E9E9E" />
+                                <path
+                                  d="M74.9133 91.1666L46.9858 87.4257L39.7427 122.657C38.6265 128.846 41.5561 130.4 47.0297 131.391L66.8726 135.413M78.9498 89.7047L59.2444 145.002L36.5385 140.361C27.025 138.306 26.7475 130.689 27.778 124.948L36.2671 82.0496L78.9498 89.7047Z"
+                                  fill="#757575" />
+                                <path class="whole"
+                                  d="M62.2283 43.2839L48.5692 52.303C46.745 53.4901 46.2121 55.9071 47.3135 57.7672L50.5508 63.2349L44.3303 68.6704C39.9917 72.447 37.0822 77.6 36.0893 83.2665L35.5187 86.391L56.2257 90.1756C58.3108 90.5736 60.1536 91.7811 61.3513 93.5342C62.549 95.2872 63.0041 97.4432 62.6172 99.5308L55.8638 137.107C55.2116 141.147 55.2107 144.437 59.2757 145.029L75.7779 147.908C79.6948 148.482 83.3538 145.842 84.0457 141.946L92.2037 96.4572C95.8636 76.0778 87.5512 69.855 85.6802 66.6691C83.8092 63.4833 74.5792 55.0936 74.5792 55.0936L67.9251 44.5234C66.7007 42.5839 64.1361 42.0321 62.2283 43.2839V43.2839Z" />
+                                <path d="M55.2303 67.9245L68.839 59.8488" class="mark" stroke-width="4"
+                                  stroke-miterlimit="10" stroke-linecap="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_3_106">
+                                  <rect width="94" height="290" fill="white" transform="matrix(-1 0 0 1 94 0)" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+
+                            <div class="disp__operation">
+                              <div>
+                                <span>L/&nbsp;</span>
+                                <span class="disp__litre"></span>
+                              </div>
+                              <div>
+                                <span>P/&nbsp;$</span>
+                                <span class="disp__price"></span>
+                              </div>
+                              <div>
+                                <span>A/&nbsp;$</span>
+                                <span class="disp__amount"></span>
+                              </div>
+                            </div>
+
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 d-flex justify-content-center">
+                      <div class="disp error" id="disp3">
+                        <div class="disp__box">
+                          <div class="disp__logo">
+                            <img src="../../dist/img/dispLogo.png" alt="">
+                          </div>
+                          <div class="disp__box--circle disp__box--circle1"></div>
+                          <div class="disp__box--circle disp__box--circle2"></div>
+                          <div class="disp__box--circle disp__box--circle3"></div>
+                        </div>
+                        <div class="disp__footer"></div>
+
+                        <div class="disp__column disp__column--left">
+                          <div class="disp__3dFace"></div>
+                          <div class="disp__3dLeft"></div>
+                          <div class="disp__3dTop"></div>
+                          <div class="disp__3dBottom"></div>
+                          <!-- nozzles -->
+                          <div id="disp3Nozzle1" class="disp__nozzle disp__nozzle--diesel disp__nozzle--1st">
+                            <svg viewBox="0 0 94 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_2_23)">
+                                <path
+                                  d="M24 152C24 153.591 24.7977 155.117 26.2176 156.243C27.6375 157.368 29.5634 158 31.5714 158H69.4286C71.4366 158 73.3625 157.368 74.7824 156.243C76.2023 155.117 77 153.591 77 152C77 150.409 76.2023 148.883 74.7824 147.757C73.3625 146.632 71.4366 146 69.4286 146H31.5714C29.5634 146 27.6375 146.632 26.2176 147.757C24.7977 148.883 24 150.409 24 152Z"
+                                  fill="#8E8E8E" />
+                                <path
+                                  d="M44.9155 289.521C51.6232 289.521 58.0702 286.281 62.6041 280.631C67.4489 274.594 70.0093 266.14 70.0093 256.183C70.0093 241.938 63.7425 228.365 56.1321 214.353C70.6924 205.023 86.9188 200.825 96.9608 200.825V191.47C83.2891 191.47 65.849 197.165 51.595 206.155L51.4915 205.969C41.8997 188.799 31.9815 171.045 31.9815 152.326H22.6283C22.6283 173.481 33.1505 192.317 43.326 210.532L43.9079 211.574C28.2332 223.924 19.6745 239.639 19.6745 256.312C19.6745 266.183 22.2585 274.591 27.148 280.629C31.7242 286.28 38.1999 289.521 44.9155 289.521ZM48.4855 219.88C55.2341 232.417 60.6561 244.441 60.6561 256.183C60.6561 267.734 55.7304 280.166 44.9155 280.166C37.2638 280.166 29.0287 272.701 29.0287 256.312C29.0287 246.65 32.5629 232.873 48.4855 219.88Z"
+                                  fill="#8E8E8E" />
+
+                              </g>
+                              <g class="handle">
+                                <path
+                                  d="M36.2901 154.803L19.0501 157.901L17.0414 146.714L34.2787 143.614L36.2901 154.803ZM32.7327 68.993L54.9315 34.7395C56.5794 32.2133 58.674 30.0126 61.1172 28.2773C68.7244 22.8854 76.0005 19.1775 79.6515 15.7365C84.4041 11.2577 76.9426 0.564629 70.8437 4.15464C66.0614 6.98654 58.0136 12.0494 50.5922 17.7188C48.4202 19.3559 46.5739 21.3687 45.0887 23.6714L21.7677 59.6661L32.7327 68.993Z"
+                                  fill="#9E9E9E" />
+                                <path
+                                  d="M19.0867 91.1666L47.0142 87.4257L54.2573 122.657C55.3735 128.846 52.4439 130.4 46.9703 131.391L27.1274 135.413M15.0502 89.7047L34.7556 145.002L57.4615 140.361C66.975 138.306 67.2525 130.689 66.222 124.948L57.733 82.0496L15.0502 89.7047Z"
+                                  fill="#757575" />
+                                <path class="whole"
+                                  d="M31.7717 43.2839L45.4308 52.303C47.255 53.4901 47.7879 55.9071 46.6865 57.7672L43.4492 63.2349L49.6697 68.6704C54.0083 72.447 56.9178 77.6 57.9107 83.2665L58.4813 86.391L37.7743 90.1756C35.6892 90.5736 33.8464 91.7811 32.6487 93.5342C31.451 95.2872 30.9959 97.4432 31.3828 99.5308L38.1362 137.107C38.7884 141.147 38.7893 144.437 34.7243 145.029L18.2221 147.908C14.3052 148.482 10.6462 145.842 9.9543 141.946L1.79633 96.4572C-1.86357 76.0778 6.44877 69.855 8.31979 66.6691C10.1908 63.4833 19.4208 55.0936 19.4208 55.0936L26.0749 44.5234C27.2993 42.5839 29.8639 42.0321 31.7717 43.2839V43.2839Z" />
+                                <path d="M38.7697 67.9245L25.161 59.8488" class="mark" stroke-width="4"
+                                  stroke-miterlimit="10" stroke-linecap="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_2_23">
+                                  <rect width="94" height="290" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+
+                            <div class="disp__operation">
+                              <div>
+                                <span>L/&nbsp;</span>
+                                <span class="disp__litre"></span>
+                              </div>
+                              <div>
+                                <span>P/&nbsp;$</span>
+                                <span class="disp__price"></span>
+                              </div>
+                              <div>
+                                <span>A/&nbsp;$</span>
+                                <span class="disp__amount"></span>
+                              </div>
+                            </div>
+
+                          </div>
+                          <div id="disp3Nozzle2" class="disp__nozzle disp__nozzle--petrol91 disp__nozzle--2nd">
+                            <svg viewBox="0 0 94 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_2_23)">
+                                <path
+                                  d="M24 152C24 153.591 24.7977 155.117 26.2176 156.243C27.6375 157.368 29.5634 158 31.5714 158H69.4286C71.4366 158 73.3625 157.368 74.7824 156.243C76.2023 155.117 77 153.591 77 152C77 150.409 76.2023 148.883 74.7824 147.757C73.3625 146.632 71.4366 146 69.4286 146H31.5714C29.5634 146 27.6375 146.632 26.2176 147.757C24.7977 148.883 24 150.409 24 152Z"
+                                  fill="#8E8E8E" />
+                                <path
+                                  d="M44.9155 289.521C51.6232 289.521 58.0702 286.281 62.6041 280.631C67.4489 274.594 70.0093 266.14 70.0093 256.183C70.0093 241.938 63.7425 228.365 56.1321 214.353C70.6924 205.023 86.9188 200.825 96.9608 200.825V191.47C83.2891 191.47 65.849 197.165 51.595 206.155L51.4915 205.969C41.8997 188.799 31.9815 171.045 31.9815 152.326H22.6283C22.6283 173.481 33.1505 192.317 43.326 210.532L43.9079 211.574C28.2332 223.924 19.6745 239.639 19.6745 256.312C19.6745 266.183 22.2585 274.591 27.148 280.629C31.7242 286.28 38.1999 289.521 44.9155 289.521ZM48.4855 219.88C55.2341 232.417 60.6561 244.441 60.6561 256.183C60.6561 267.734 55.7304 280.166 44.9155 280.166C37.2638 280.166 29.0287 272.701 29.0287 256.312C29.0287 246.65 32.5629 232.873 48.4855 219.88Z"
+                                  fill="#8E8E8E" />
+
+                              </g>
+                              <g class="handle">
+                                <path
+                                  d="M36.2901 154.803L19.0501 157.901L17.0414 146.714L34.2787 143.614L36.2901 154.803ZM32.7327 68.993L54.9315 34.7395C56.5794 32.2133 58.674 30.0126 61.1172 28.2773C68.7244 22.8854 76.0005 19.1775 79.6515 15.7365C84.4041 11.2577 76.9426 0.564629 70.8437 4.15464C66.0614 6.98654 58.0136 12.0494 50.5922 17.7188C48.4202 19.3559 46.5739 21.3687 45.0887 23.6714L21.7677 59.6661L32.7327 68.993Z"
+                                  fill="#9E9E9E" />
+                                <path
+                                  d="M19.0867 91.1666L47.0142 87.4257L54.2573 122.657C55.3735 128.846 52.4439 130.4 46.9703 131.391L27.1274 135.413M15.0502 89.7047L34.7556 145.002L57.4615 140.361C66.975 138.306 67.2525 130.689 66.222 124.948L57.733 82.0496L15.0502 89.7047Z"
+                                  fill="#757575" />
+                                <path class="whole"
+                                  d="M31.7717 43.2839L45.4308 52.303C47.255 53.4901 47.7879 55.9071 46.6865 57.7672L43.4492 63.2349L49.6697 68.6704C54.0083 72.447 56.9178 77.6 57.9107 83.2665L58.4813 86.391L37.7743 90.1756C35.6892 90.5736 33.8464 91.7811 32.6487 93.5342C31.451 95.2872 30.9959 97.4432 31.3828 99.5308L38.1362 137.107C38.7884 141.147 38.7893 144.437 34.7243 145.029L18.2221 147.908C14.3052 148.482 10.6462 145.842 9.9543 141.946L1.79633 96.4572C-1.86357 76.0778 6.44877 69.855 8.31979 66.6691C10.1908 63.4833 19.4208 55.0936 19.4208 55.0936L26.0749 44.5234C27.2993 42.5839 29.8639 42.0321 31.7717 43.2839V43.2839Z" />
+                                <path d="M38.7697 67.9245L25.161 59.8488" class="mark" stroke-width="4"
+                                  stroke-miterlimit="10" stroke-linecap="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_2_23">
+                                  <rect width="94" height="290" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                            <div class="disp__operation">
+                              <div>
+                                <span>L/&nbsp;</span>
+                                <span class="disp__litre"></span>
+                              </div>
+                              <div>
+                                <span>P/&nbsp;$</span>
+                                <span class="disp__price"></span>
+                              </div>
+                              <div>
+                                <span>A/&nbsp;$</span>
+                                <span class="disp__amount"></span>
+                              </div>
+                            </div>
+
+                          </div>
+                          <div id="disp3Nozzle3" class="disp__nozzle disp__nozzle--petrol95 disp__nozzle--3rd">
+                            <svg viewBox="0 0 94 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_2_23)">
+                                <path
+                                  d="M24 152C24 153.591 24.7977 155.117 26.2176 156.243C27.6375 157.368 29.5634 158 31.5714 158H69.4286C71.4366 158 73.3625 157.368 74.7824 156.243C76.2023 155.117 77 153.591 77 152C77 150.409 76.2023 148.883 74.7824 147.757C73.3625 146.632 71.4366 146 69.4286 146H31.5714C29.5634 146 27.6375 146.632 26.2176 147.757C24.7977 148.883 24 150.409 24 152Z"
+                                  fill="#8E8E8E" />
+                                <path
+                                  d="M44.9155 289.521C51.6232 289.521 58.0702 286.281 62.6041 280.631C67.4489 274.594 70.0093 266.14 70.0093 256.183C70.0093 241.938 63.7425 228.365 56.1321 214.353C70.6924 205.023 86.9188 200.825 96.9608 200.825V191.47C83.2891 191.47 65.849 197.165 51.595 206.155L51.4915 205.969C41.8997 188.799 31.9815 171.045 31.9815 152.326H22.6283C22.6283 173.481 33.1505 192.317 43.326 210.532L43.9079 211.574C28.2332 223.924 19.6745 239.639 19.6745 256.312C19.6745 266.183 22.2585 274.591 27.148 280.629C31.7242 286.28 38.1999 289.521 44.9155 289.521ZM48.4855 219.88C55.2341 232.417 60.6561 244.441 60.6561 256.183C60.6561 267.734 55.7304 280.166 44.9155 280.166C37.2638 280.166 29.0287 272.701 29.0287 256.312C29.0287 246.65 32.5629 232.873 48.4855 219.88Z"
+                                  fill="#8E8E8E" />
+
+                              </g>
+                              <g class="handle">
+                                <path
+                                  d="M36.2901 154.803L19.0501 157.901L17.0414 146.714L34.2787 143.614L36.2901 154.803ZM32.7327 68.993L54.9315 34.7395C56.5794 32.2133 58.674 30.0126 61.1172 28.2773C68.7244 22.8854 76.0005 19.1775 79.6515 15.7365C84.4041 11.2577 76.9426 0.564629 70.8437 4.15464C66.0614 6.98654 58.0136 12.0494 50.5922 17.7188C48.4202 19.3559 46.5739 21.3687 45.0887 23.6714L21.7677 59.6661L32.7327 68.993Z"
+                                  fill="#9E9E9E" />
+                                <path
+                                  d="M19.0867 91.1666L47.0142 87.4257L54.2573 122.657C55.3735 128.846 52.4439 130.4 46.9703 131.391L27.1274 135.413M15.0502 89.7047L34.7556 145.002L57.4615 140.361C66.975 138.306 67.2525 130.689 66.222 124.948L57.733 82.0496L15.0502 89.7047Z"
+                                  fill="#757575" />
+                                <path class="whole"
+                                  d="M31.7717 43.2839L45.4308 52.303C47.255 53.4901 47.7879 55.9071 46.6865 57.7672L43.4492 63.2349L49.6697 68.6704C54.0083 72.447 56.9178 77.6 57.9107 83.2665L58.4813 86.391L37.7743 90.1756C35.6892 90.5736 33.8464 91.7811 32.6487 93.5342C31.451 95.2872 30.9959 97.4432 31.3828 99.5308L38.1362 137.107C38.7884 141.147 38.7893 144.437 34.7243 145.029L18.2221 147.908C14.3052 148.482 10.6462 145.842 9.9543 141.946L1.79633 96.4572C-1.86357 76.0778 6.44877 69.855 8.31979 66.6691C10.1908 63.4833 19.4208 55.0936 19.4208 55.0936L26.0749 44.5234C27.2993 42.5839 29.8639 42.0321 31.7717 43.2839V43.2839Z" />
+                                <path d="M38.7697 67.9245L25.161 59.8488" class="mark" stroke-width="4"
+                                  stroke-miterlimit="10" stroke-linecap="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_2_23">
+                                  <rect width="94" height="290" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                            <div class="disp__operation">
+                              <div>
+                                <span>L/&nbsp;</span>
+                                <span class="disp__litre"></span>
+                              </div>
+                              <div>
+                                <span>P/&nbsp;$</span>
+                                <span class="disp__price"></span>
+                              </div>
+                              <div>
+                                <span>A/&nbsp;$</span>
+                                <span class="disp__amount"></span>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="disp__column disp__column--right">
+                          <div class="disp__3dFace"></div>
+                          <div class="disp__3dLeft"></div>
+                          <div class="disp__3dTop"></div>
+                          <div class="disp__3dBottom"></div>
+
+                          <!-- nozzles -->
+                          <div id="disp3Nozzle4" class="disp__nozzle  disp__nozzle--diesel disp__nozzle--1st">
+                            <svg viewBox="0 0 94 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_3_106)">
+                                <path
+                                  d="M70 152C70 153.591 69.2023 155.117 67.7824 156.243C66.3625 157.368 64.4366 158 62.4286 158H24.5714C22.5634 158 20.6375 157.368 19.2176 156.243C17.7977 155.117 17 153.591 17 152C17 150.409 17.7977 148.883 19.2176 147.757C20.6375 146.632 22.5634 146 24.5714 146H62.4286C64.4366 146 66.3625 146.632 67.7824 147.757C69.2023 148.883 70 150.409 70 152Z"
+                                  fill="#8E8E8E" />
+                                <path
+                                  d="M49.0845 289.521C42.3768 289.521 35.9298 286.281 31.3959 280.631C26.5511 274.594 23.9907 266.14 23.9907 256.183C23.9907 241.938 30.2575 228.365 37.8679 214.353C23.3076 205.023 7.08118 200.825 -2.96075 200.825V191.47C10.7109 191.47 28.151 197.165 42.405 206.155L42.5085 205.969C52.1003 188.799 62.0185 171.045 62.0185 152.326H71.3717C71.3717 173.481 60.8495 192.317 50.674 210.532L50.0921 211.574C65.7668 223.924 74.3255 239.639 74.3255 256.312C74.3255 266.183 71.7415 274.591 66.852 280.629C62.2758 286.28 55.8001 289.521 49.0845 289.521ZM45.5145 219.88C38.7659 232.417 33.3439 244.441 33.3439 256.183C33.3439 267.734 38.2696 280.166 49.0845 280.166C56.7362 280.166 64.9713 272.701 64.9713 256.312C64.9713 246.65 61.4371 232.873 45.5145 219.88Z"
+                                  fill="#8E8E8E" />
+
+                              </g>
+                              <g class="handle">
+                                <path
+                                  d="M57.7099 154.803L74.9499 157.901L76.9586 146.714L59.7213 143.614L57.7099 154.803ZM61.2673 68.993L39.0685 34.7395C37.4206 32.2133 35.326 30.0126 32.8828 28.2773C25.2756 22.8854 17.9995 19.1775 14.3485 15.7365C9.59585 11.2577 17.0574 0.564629 23.1563 4.15464C27.9386 6.98654 35.9864 12.0494 43.4078 17.7188C45.5798 19.3559 47.4261 21.3687 48.9113 23.6714L72.2323 59.6661L61.2673 68.993Z"
+                                  fill="#9E9E9E" />
+                                <path
+                                  d="M74.9133 91.1666L46.9858 87.4257L39.7427 122.657C38.6265 128.846 41.5561 130.4 47.0297 131.391L66.8726 135.413M78.9498 89.7047L59.2444 145.002L36.5385 140.361C27.025 138.306 26.7475 130.689 27.778 124.948L36.2671 82.0496L78.9498 89.7047Z"
+                                  fill="#757575" />
+                                <path class="whole"
+                                  d="M62.2283 43.2839L48.5692 52.303C46.745 53.4901 46.2121 55.9071 47.3135 57.7672L50.5508 63.2349L44.3303 68.6704C39.9917 72.447 37.0822 77.6 36.0893 83.2665L35.5187 86.391L56.2257 90.1756C58.3108 90.5736 60.1536 91.7811 61.3513 93.5342C62.549 95.2872 63.0041 97.4432 62.6172 99.5308L55.8638 137.107C55.2116 141.147 55.2107 144.437 59.2757 145.029L75.7779 147.908C79.6948 148.482 83.3538 145.842 84.0457 141.946L92.2037 96.4572C95.8636 76.0778 87.5512 69.855 85.6802 66.6691C83.8092 63.4833 74.5792 55.0936 74.5792 55.0936L67.9251 44.5234C66.7007 42.5839 64.1361 42.0321 62.2283 43.2839V43.2839Z" />
+                                <path d="M55.2303 67.9245L68.839 59.8488" class="mark" stroke-width="4"
+                                  stroke-miterlimit="10" stroke-linecap="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_3_106">
+                                  <rect width="94" height="290" fill="white" transform="matrix(-1 0 0 1 94 0)" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+
+                            <div class="disp__operation">
+                              <div>
+                                <span>L/&nbsp;</span>
+                                <span class="disp__litre"></span>
+                              </div>
+                              <div>
+                                <span>P/&nbsp;$</span>
+                                <span class="disp__price"></span>
+                              </div>
+                              <div>
+                                <span>A/&nbsp;$</span>
+                                <span class="disp__amount"></span>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="disp3Nozzle5" class="disp__nozzle disp__nozzle--petrol91 disp__nozzle--2nd">
+                            <svg viewBox="0 0 94 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_3_106)">
+                                <path
+                                  d="M70 152C70 153.591 69.2023 155.117 67.7824 156.243C66.3625 157.368 64.4366 158 62.4286 158H24.5714C22.5634 158 20.6375 157.368 19.2176 156.243C17.7977 155.117 17 153.591 17 152C17 150.409 17.7977 148.883 19.2176 147.757C20.6375 146.632 22.5634 146 24.5714 146H62.4286C64.4366 146 66.3625 146.632 67.7824 147.757C69.2023 148.883 70 150.409 70 152Z"
+                                  fill="#8E8E8E" />
+                                <path
+                                  d="M49.0845 289.521C42.3768 289.521 35.9298 286.281 31.3959 280.631C26.5511 274.594 23.9907 266.14 23.9907 256.183C23.9907 241.938 30.2575 228.365 37.8679 214.353C23.3076 205.023 7.08118 200.825 -2.96075 200.825V191.47C10.7109 191.47 28.151 197.165 42.405 206.155L42.5085 205.969C52.1003 188.799 62.0185 171.045 62.0185 152.326H71.3717C71.3717 173.481 60.8495 192.317 50.674 210.532L50.0921 211.574C65.7668 223.924 74.3255 239.639 74.3255 256.312C74.3255 266.183 71.7415 274.591 66.852 280.629C62.2758 286.28 55.8001 289.521 49.0845 289.521ZM45.5145 219.88C38.7659 232.417 33.3439 244.441 33.3439 256.183C33.3439 267.734 38.2696 280.166 49.0845 280.166C56.7362 280.166 64.9713 272.701 64.9713 256.312C64.9713 246.65 61.4371 232.873 45.5145 219.88Z"
+                                  fill="#8E8E8E" />
+
+                              </g>
+                              <g class="handle">
+                                <path
+                                  d="M57.7099 154.803L74.9499 157.901L76.9586 146.714L59.7213 143.614L57.7099 154.803ZM61.2673 68.993L39.0685 34.7395C37.4206 32.2133 35.326 30.0126 32.8828 28.2773C25.2756 22.8854 17.9995 19.1775 14.3485 15.7365C9.59585 11.2577 17.0574 0.564629 23.1563 4.15464C27.9386 6.98654 35.9864 12.0494 43.4078 17.7188C45.5798 19.3559 47.4261 21.3687 48.9113 23.6714L72.2323 59.6661L61.2673 68.993Z"
+                                  fill="#9E9E9E" />
+                                <path
+                                  d="M74.9133 91.1666L46.9858 87.4257L39.7427 122.657C38.6265 128.846 41.5561 130.4 47.0297 131.391L66.8726 135.413M78.9498 89.7047L59.2444 145.002L36.5385 140.361C27.025 138.306 26.7475 130.689 27.778 124.948L36.2671 82.0496L78.9498 89.7047Z"
+                                  fill="#757575" />
+                                <path class="whole"
+                                  d="M62.2283 43.2839L48.5692 52.303C46.745 53.4901 46.2121 55.9071 47.3135 57.7672L50.5508 63.2349L44.3303 68.6704C39.9917 72.447 37.0822 77.6 36.0893 83.2665L35.5187 86.391L56.2257 90.1756C58.3108 90.5736 60.1536 91.7811 61.3513 93.5342C62.549 95.2872 63.0041 97.4432 62.6172 99.5308L55.8638 137.107C55.2116 141.147 55.2107 144.437 59.2757 145.029L75.7779 147.908C79.6948 148.482 83.3538 145.842 84.0457 141.946L92.2037 96.4572C95.8636 76.0778 87.5512 69.855 85.6802 66.6691C83.8092 63.4833 74.5792 55.0936 74.5792 55.0936L67.9251 44.5234C66.7007 42.5839 64.1361 42.0321 62.2283 43.2839V43.2839Z" />
+                                <path d="M55.2303 67.9245L68.839 59.8488" class="mark" stroke-width="4"
+                                  stroke-miterlimit="10" stroke-linecap="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_3_106">
+                                  <rect width="94" height="290" fill="white" transform="matrix(-1 0 0 1 94 0)" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                            <div class="disp__operation">
+                              <div>
+                                <span>L/&nbsp;</span>
+                                <span class="disp__litre"></span>
+                              </div>
+                              <div>
+                                <span>P/&nbsp;$</span>
+                                <span class="disp__price"></span>
+                              </div>
+                              <div>
+                                <span>A/&nbsp;$</span>
+                                <span class="disp__amount"></span>
+                              </div>
+                            </div>
+
+
+                          </div>
+                          <div id="disp3Nozzle6" class="disp__nozzle disp__nozzle--petrol95 disp__nozzle--3rd">
+                            <svg viewBox="0 0 94 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_3_106)">
+                                <path
+                                  d="M70 152C70 153.591 69.2023 155.117 67.7824 156.243C66.3625 157.368 64.4366 158 62.4286 158H24.5714C22.5634 158 20.6375 157.368 19.2176 156.243C17.7977 155.117 17 153.591 17 152C17 150.409 17.7977 148.883 19.2176 147.757C20.6375 146.632 22.5634 146 24.5714 146H62.4286C64.4366 146 66.3625 146.632 67.7824 147.757C69.2023 148.883 70 150.409 70 152Z"
+                                  fill="#8E8E8E" />
+                                <path
+                                  d="M49.0845 289.521C42.3768 289.521 35.9298 286.281 31.3959 280.631C26.5511 274.594 23.9907 266.14 23.9907 256.183C23.9907 241.938 30.2575 228.365 37.8679 214.353C23.3076 205.023 7.08118 200.825 -2.96075 200.825V191.47C10.7109 191.47 28.151 197.165 42.405 206.155L42.5085 205.969C52.1003 188.799 62.0185 171.045 62.0185 152.326H71.3717C71.3717 173.481 60.8495 192.317 50.674 210.532L50.0921 211.574C65.7668 223.924 74.3255 239.639 74.3255 256.312C74.3255 266.183 71.7415 274.591 66.852 280.629C62.2758 286.28 55.8001 289.521 49.0845 289.521ZM45.5145 219.88C38.7659 232.417 33.3439 244.441 33.3439 256.183C33.3439 267.734 38.2696 280.166 49.0845 280.166C56.7362 280.166 64.9713 272.701 64.9713 256.312C64.9713 246.65 61.4371 232.873 45.5145 219.88Z"
+                                  fill="#8E8E8E" />
+
+                              </g>
+                              <g class="handle">
+                                <path
+                                  d="M57.7099 154.803L74.9499 157.901L76.9586 146.714L59.7213 143.614L57.7099 154.803ZM61.2673 68.993L39.0685 34.7395C37.4206 32.2133 35.326 30.0126 32.8828 28.2773C25.2756 22.8854 17.9995 19.1775 14.3485 15.7365C9.59585 11.2577 17.0574 0.564629 23.1563 4.15464C27.9386 6.98654 35.9864 12.0494 43.4078 17.7188C45.5798 19.3559 47.4261 21.3687 48.9113 23.6714L72.2323 59.6661L61.2673 68.993Z"
+                                  fill="#9E9E9E" />
+                                <path
+                                  d="M74.9133 91.1666L46.9858 87.4257L39.7427 122.657C38.6265 128.846 41.5561 130.4 47.0297 131.391L66.8726 135.413M78.9498 89.7047L59.2444 145.002L36.5385 140.361C27.025 138.306 26.7475 130.689 27.778 124.948L36.2671 82.0496L78.9498 89.7047Z"
+                                  fill="#757575" />
+                                <path class="whole"
+                                  d="M62.2283 43.2839L48.5692 52.303C46.745 53.4901 46.2121 55.9071 47.3135 57.7672L50.5508 63.2349L44.3303 68.6704C39.9917 72.447 37.0822 77.6 36.0893 83.2665L35.5187 86.391L56.2257 90.1756C58.3108 90.5736 60.1536 91.7811 61.3513 93.5342C62.549 95.2872 63.0041 97.4432 62.6172 99.5308L55.8638 137.107C55.2116 141.147 55.2107 144.437 59.2757 145.029L75.7779 147.908C79.6948 148.482 83.3538 145.842 84.0457 141.946L92.2037 96.4572C95.8636 76.0778 87.5512 69.855 85.6802 66.6691C83.8092 63.4833 74.5792 55.0936 74.5792 55.0936L67.9251 44.5234C66.7007 42.5839 64.1361 42.0321 62.2283 43.2839V43.2839Z" />
+                                <path d="M55.2303 67.9245L68.839 59.8488" class="mark" stroke-width="4"
+                                  stroke-miterlimit="10" stroke-linecap="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_3_106">
+                                  <rect width="94" height="290" fill="white" transform="matrix(-1 0 0 1 94 0)" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+
+                            <div class="disp__operation">
+                              <div>
+                                <span>L/&nbsp;</span>
+                                <span class="disp__litre"></span>
+                              </div>
+                              <div>
+                                <span>P/&nbsp;$</span>
+                                <span class="disp__price"></span>
+                              </div>
+                              <div>
+                                <span>A/&nbsp;$</span>
+                                <span class="disp__amount"></span>
+                              </div>
+                            </div>
+
+                          </div>
+
+                        </div>
+                        <div class="disp__overlay">
+                          <img src="../../dist/img/error.png" alt="">
+                          <p>Something went wrong!</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <!-- just for try -->
+                  <!-- <button id="btn11">trigger disp1Nozzle1 with 200 litre</button>
+                  <button id="btn22">trigger disp1Nozzle1 with 400 litre</button>
+                  <button id="btn33">stop disp1Nozzle1</button>
+
+                  <button id="btn44">trigger disp1Nozzle4 with 200 litre</button>
+                  <button id="btn55">disp1Nozzle4</button> -->
+
+                </div>
+              </div>
+              <!-- end DISPENSERS -->
+
+              <!-- start NOZZLES -->
+              <div class="card mt-3 mb-0">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title">Nozzles</h3>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="card-body pt-half">
+                  <div class="row">
+                    <div class="col-md-6 col-lg-4 col-xl-3 mb-3 d-flex justify-content-center">
+                      <div class="nozz diesel" id="nozz1">
+                        <div class="nozz__head">
+                          <span>D</span><span>i</span><span>e</span><span>s</span><span>e</span><span>l</span>
+                        </div>
+                        <div class="nozz__body">
+                          <div>
+                            <span>Amount: $</span>
+                            <span class="nozz__amount">00.000</span>
+                          </div>
+                          <div>
+                            <span>Litre: </span>
+                            <span class="nozz__litre">00.000</span>
+                          </div>
+                          <div>
+                            <span>Price: $</span>
+                            <span class="nozz__price">00.000</span>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 mb-3 d-flex justify-content-center">
+                      <div class="nozz petrol95" id="nozz2">
+                        <div class="nozz__head">
+                          <span>P</span><span>e</span><span>t</span><span>r</span><span>o</span><span>l</span><span>9</span><span>5</span>
+                        </div>
+                        <div class="nozz__body">
+                          <div>
+                            <span>Amount: $</span>
+                            <span class="nozz__amount">00.000</span>
+                          </div>
+                          <div>
+                            <span>Litre: </span>
+                            <span class="nozz__litre">00.000</span>
+                          </div>
+                          <div>
+                            <span>Price: $</span>
+                            <span class="nozz__price">00.000</span>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 mb-3 d-flex justify-content-center">
+                      <div class="nozz petrol95" id="nozz2">
+                        <div class="nozz__head">
+                          <span>P</span><span>e</span><span>t</span><span>r</span><span>o</span><span>l</span><span>9</span><span>5</span>
+                        </div>
+                        <div class="nozz__body">
+                          <div>
+                            <span>Amount: $</span>
+                            <span class="nozz__amount">00.000</span>
+                          </div>
+                          <div>
+                            <span>Litre: </span>
+                            <span class="nozz__litre">00.000</span>
+                          </div>
+                          <div>
+                            <span>Price: $</span>
+                            <span class="nozz__price">00.000</span>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 mb-3 d-flex justify-content-center">
+                      <div class="nozz petrol91 error" id="nozz3">
+                        <div class="nozz__head">
+                          <span>P</span><span>e</span><span>t</span><span>r</span><span>o</span><span>l</span><span>9</span><span>1</span>
+                        </div>
+                        <div class="nozz__body">
+                          <div>
+                            <span>Amount: $</span>
+                            <span class="nozz__amount">00.000</span>
+                          </div>
+                          <div>
+                            <span>Litre: </span>
+                            <span class="nozz__litre">00.000</span>
+                          </div>
+                          <div>
+                            <span>Price: $</span>
+                            <span class="nozz__price">00.000</span>
+                          </div>
+                        </div>
+                        <div class="nozz__overlay">
+                          <img src="../../dist/img/error.png" alt="">
+                          <p>Something went wrong!</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              
+              
+                  <!-- just for try -->
+                  <button id="btnx">trigger nozz1 with 200 litre</button>
+                  <button id="btnxx">Terminate nozz1 </button>
+              
+                </div>
+              </div>
+              <!-- end NOZZLES -->
+
+            </div>
+
+            <!-- start TANKS -->
+            <div class="col-xl-3 col-lg-4 col-md-5">
+              <div class="card mb-0 h-100">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title">Tanks</h3>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="card-body pt-half">
+
+                  <div class="position-relative tank benzin95Gauge">
+                    <p class="petrolType">
+                      <span class="miniCircle bg-petrol95"></span>
+                      <span>Gasoline 95</span>
+                    </p>
+                    <div class="gauge ">
+                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px" y="0px" style="display: none;">
+                        <symbol id="wave">
+                          <path
+                            d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z">
+                          </path>
+                          <path
+                            d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z">
+                          </path>
+                          <path
+                            d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z">
+                          </path>
+                          <path
+                            d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z">
+                          </path>
+                        </symbol>
+                      </svg>
+                      <div class="gauge__box">
+                        <div class="percent">
+                          <div class="percentNum" id="Count95">0</div>
+                          <div class="percentB">%</div>
+                        </div>
+                        <div id="Water95" class="bg-petrol95 water">
+                          <svg viewBox="0 0 560 20" class="water_wave water_wave_back">
+                            <use xlink:href="#wave"></use>
+                          </svg>
+                          <svg viewBox="0 0 560 20" class="water_wave water_wave_front">
+                            <use xlink:href="#wave"></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sales__state mt-3">
+
+                      <div class="sales__sold">
+                        <span>Volume:</span>
+                        <span>62kL</span>
+                      </div>
+                      <div class="sales__sold">
+                        <span>Max:</span>
+                        <span>62kL</span>
+                      </div>
+                      <div class="sales__sold">
+                        <span>Min:</span>
+                        <span>62kL</span>
+                      </div>
+                    </div>
+
+                    <!-- 17-7 -->
+                    <div class="tank__alert">
+                      <img src="../../dist/img/error.png" title="tank is about to be full." alt="">
+                    </div>
+                  </div>
+                  <div class="divider"></div>
+
+                  
+
+                  <div class="position-relative tank benzin91Gauge">
+                    <p class="petrolType">
+                      <span class="miniCircle bg-petrol91"></span>
+                      <span>Gasoline 91</span>
+                    </p>
+                    <div class="gauge ">
+                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px" y="0px" style="display: none;">
+                        <symbol id="wave">
+                          <path
+                            d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z">
+                          </path>
+                          <path
+                            d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z">
+                          </path>
+                          <path
+                            d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z">
+                          </path>
+                          <path
+                            d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z">
+                          </path>
+                        </symbol>
+                      </svg>
+                      <div class="gauge__box">
+                        <div class="percent">
+                          <div class="percentNum" id="Count91">0</div>
+                          <div class="percentB">%</div>
+                        </div>
+                        <div id="Water91" class="bg-petrol91 water">
+                          <svg viewBox="0 0 560 20" class="water_wave water_wave_back">
+                            <use xlink:href="#wave"></use>
+                          </svg>
+                          <svg viewBox="0 0 560 20" class="water_wave water_wave_front">
+                            <use xlink:href="#wave"></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sales__state mt-3">
+                      <div class="sales__sold">
+                        <span>Volume:</span>
+                        <span>62kL</span>
+                      </div>
+                      <div class="sales__sold">
+                        <span>Max:</span>
+                        <span>62kL</span>
+                      </div>
+                      <div class="sales__sold">
+                        <span>Min:</span>
+                        <span>62kL</span>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="divider"></div>
+                  <div class="position-relative tank dieselGauge">
+                    <p class="petrolType">
+                      <span class="miniCircle bg-diesel"></span>
+                      <span>Diesel</span>
+                    </p>
+                    <div class="gauge ">
+                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px" y="0px" style="display: none;">
+                        <symbol id="wave">
+                          <path
+                            d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z">
+                          </path>
+                          <path
+                            d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z">
+                          </path>
+                          <path
+                            d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z">
+                          </path>
+                          <path
+                            d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z">
+                          </path>
+                        </symbol>
+                      </svg>
+                      <div class="gauge__box">
+                        <div class="percent">
+                          <div class="percentNum" id="CountDiesel">0</div>
+                          <div class="percentB">%</div>
+                        </div>
+                        <div id="WaterDiesel" class="bg-diesel water">
+                          <svg viewBox="0 0 560 20" class="water_wave water_wave_back">
+                            <use xlink:href="#wave"></use>
+                          </svg>
+                          <svg viewBox="0 0 560 20" class="water_wave water_wave_front">
+                            <use xlink:href="#wave"></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sales__state mt-3">
+
+                      <div class="sales__sold">
+                        <span>Volume:</span>
+                        <span>62kL</span>
+                      </div>
+                      <div class="sales__sold">
+                        <span>Max:</span>
+                        <span>62kL</span>
+                      </div>
+                      <div class="sales__sold">
+                        <span>Min:</span>
+                        <span>62kL</span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end TANKS -->
+
+
+
+          </div>
+
+          <!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+
+
+
+  </div>
+  <!-- /.content-wrapper -->
+  <!-- ./wrapper -->
+
+
+  <!-- JQUERY -->
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- BOOTSTRAP -->
+  <script src="../../plugins/bootstrap/bootstrap.bundle.min.js"></script>
+  <!-- ADMIN LTE SCRIPTS -->
+  <script src="../../dist/js/scripts.min.js"></script>
+  <!-- select2 -->
+  <script src='../../plugins/select2/js/select2.full.min.js'></script>
+
+  <!-- TABLES -->
+  <script src="../../plugins/tables/js/jquery.dataTables.min.js"></script>
+  <script src="../../plugins/tables/js/dataTables.bootstrap4.min.js"></script>
+  <script src="../../plugins/tables/js/dataTables.responsive.min.js"></script>
+  <script src="../../plugins/tables/js/buttons.print.min.js"></script>
+  <script src="../../plugins/tables/js/dataTables.buttons.min.js"></script>
+  <script src="../../plugins/tables/js/buttons.html5.min.js"></script>
+  <script src="../../plugins/tables/js/jszip.min.js"></script>
+  <!-- COMMON SCRIPTS -->
+  <script src="../../dist/js/common.js"></script>
+  <!-- specific js -->
+  <script src="../../dist/js/reports/realtime.js"></script>
+  <script>
+    $(".select2").select2()
+  </script>
+
+</body>
+
+</html>

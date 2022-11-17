@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" class="scrollbar2">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qserv | Dashboard</title>
+
+  <!-- favicon -->
+  <link rel="icon" href="favicon-16-16.ico">
+  <link rel="shortcut icon" href="favicon-32-32.png">
+
+  <!-- google fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap"
+  rel="stylesheet">
+
+  <!-- font-awesome icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- TABLES -->
+  <link rel="stylesheet" href="plugins/tables/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/tables/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="dist/css/helpers/tables.css">
+  <!-- dropdowns -->
+  <link rel="stylesheet" href="dist/css/helpers/dropdowns.css">
+  <!-- grid -->
+  <link rel="stylesheet" href="dist/css/helpers/grid.css">
+  <!-- cards -->
+  <link rel="stylesheet" href="dist/css/helpers/cards.css">
+  <!-- pagination -->
+  <link rel="stylesheet" href="dist/css/helpers/pagination.css">
+  <!-- progressBars -->
+  <link rel="stylesheet" href="dist/css/helpers/progressBars.css">
+  <!-- animations -->
+  <link rel="stylesheet" href="dist/css/helpers/animations.css">
+  <!-- layout -->
+  <link rel="stylesheet" href="dist/css/helpers/layout.css">
+  <!-- helperClasses -->
+  <link rel="stylesheet" href="dist/css/helpers/helperClasses.css">
+
+
+  <!-- all other styles -->
+  <!-- <link rel="stylesheet" href="dist/css/restOfStyles.css"> -->
+
+  <!-- specific styles -->
+  <link rel="stylesheet" href="dist/css/global.css">
+  <link rel="stylesheet" href="dist/css/reports/dashboard.css">
+
+  <!-- RTL -->
+  <!-- <link rel="stylesheet" href="./dist/css/RTL.css"> -->
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed sidebar-collapse">
+  <div class="wrapper">
+    <!-- SHARED -->
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <span class="nav-link" data-widget="pushmenu" role="button"><i class="fa-solid fa-bars-staggered"></i></span>
+        </li>
+      </ul>
+
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item ">
+          <span class="nav-link">
+            <div class="langSwitch">
+              <input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
+              <label for="language-toggle"></label>
+              <span class="on">EN</span>
+              <span class="off">AR</span>
+            </div>
+          </span>
+        </li>
+
+        <li class="nav-item ">
+          <span class="nav-link">
+            <label>
+              <input id="themeToggler" class='toggle-checkbox' type='checkbox'></input>
+              <div class='toggle-slot'>
+                <div class='sun-icon-wrapper themeIconWrapper'>
+                  <i class="sun-icon themeIcon fa-solid fa-sun"></i>
+                </div>
+                <div class='toggle-button'></div>
+                <div class='moon-icon-wrapper themeIconWrapper'>
+                  <i class="moon-icon themeIcon fa-solid fa-moon"></i>
+                </div>
+              </div>
+            </label>
+          </span>
+        </li>
+        <li class="nav-item dropdown ">
+          <span class="nav-link" data-toggle="dropdown" href="#" aria-expanded="true">
+            <i class="far fa-bell"></i>
+            <!-- shown only if there are notifications -->
+            <span class="badge badge-warning navbar-badge"></span>
+          </span>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <span class="dropdown-item text-left dropdown-header">Notifications</span>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <div class="dropdown-textAndIcon">
+                <i class="fas fa-envelope mr-2"></i>
+              <span>4 new messages</span>
+              </div>
+              <span class="float-right text-muted text-sm">3 mins</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <div class="dropdown-textAndIcon">
+                <i class="fas fa-users mr-2"></i>
+                <span>8 friend requests</span>
+              </div>
+              <span class="float-right text-muted text-sm">12 hours</span>
+            </a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <span class="nav-link" role="button" data-toggle="dropdown" href="#" aria-expanded="false">
+            <i class="fa fa-chevron-down"></i>
+          </span>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <a class="dropdown-item" href="pages/users/changePassword.html">
+              <div class="dropdown-textAndIcon">
+                <i class="fas fa-lock-open mr-2"></i>
+                <span>Change password</span>
+              </div>
+               
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <div class="dropdown-textAndIcon">
+                <i class="fas fa-sign-out-alt mr-2"></i>
+                <span>Sign-out</span>
+              </div>
+               
+            </a>
+
+
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-link logo-switch">
+        <img src="dist/img/logo2.png" alt="Qserv" class="brand-image-xs logo-xl">
+        <!-- replace the above with the following -->
+        <!-- <img src="dist/img/logo_rtl.png" alt="Qserv" class="brand-image-xs logo-xl"> -->
+        <img src="dist/img/logoSmall.png" alt="Qserv" class="brand-image-xs logo-xs">
+      </a>
+
+
+      <!-- Sidebar -->
+      <div class="sidebar scrollbar">
+        <!-- <div class="divider"></div> -->
+        <div class="user-panel  d-flex">
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-3 mb-4">
+
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <li class="nav-item menu-is-opening menu-open">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa-solid fa-chart-bar"></i>
+                <p>
+                  Reports
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/" class="nav-link active">
+                    <i class="nav-icon fa-solid fa-house-chimney-crack"></i>
+                    <p>Dashboard</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="/pages/reports/realTimeReport.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-clock-rotate-left"></i>
+                    <p>Real Time Report</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/pages/reports/dailyReport.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-calendar-week"></i>
+                    <p>Daily Report</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/pages/reports/shiftReport.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-arrows-rotate"></i>
+                    <p>Shift Report</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/pages/reports/transactionsReport.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-right-left"></i>
+                    <p>Transactions Report</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/pages/reports/deliveryReport.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-hand-holding-droplet"></i>
+                    <p>Delivery Report</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa-solid fa-bars-progress"></i>
+                <p>
+                  Management
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/pages/management/stations.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-map-location-dot"></i>
+                    <p>Stations</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/pages/management/stationPrices.html" class="nav-link">
+                    <i class="nav-icon fa-solid fa-file-invoice-dollar"></i>
+                    <p>Change price</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/pages/management/delivery.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-truck-ramp-box"></i>
+                    <p>Delivery</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/pages/management/tanks.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-boxes-stacked"></i>
+                    <p>Tanks</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/pages/management/transactions.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-file-waveform"></i>
+                    <p>Transactions</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/pages/management/nozzles.html" class="nav-link ">
+                    <i class="nav-icon fa-brands fa-hubspot"></i>
+                    <p>Nozzles</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/pages/management/cities.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-city"></i>
+                    <p>Cities</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/pages/management/dispensers.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-gas-pump"></i>
+                    <p>Dispensers</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/pages/management/employees.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-users-gear"></i>
+                    <p>Employees</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item ">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa-solid fa-user-gear"></i>
+                <p>
+                  User Management
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/pages/users/listUsers.html" class="nav-link ">
+                    <i class="nav-icon fa-solid fa-users-gear"></i>
+                    <p>Users</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+    <!-- /.Main Sidebar Container -->
+
+    <!-- /.SHARED -->
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+      <!-- Main content -->
+      <div class="content pt-3">
+        <div class="container-fluid ">
+          <div class="row">
+            <!-- start OVERVIEW -->
+            <div class="col-xl-9 col-lg-8 col-md-7 mb-3 mb-md-0">
+              <div class="card mb-0 h-100">
+                <div class="card-header bb-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title">Overview</h3>
+                  <div class="card-tools d-flex">
+                    <div class="overview__types">
+                      <p class="petrolType">
+                        <span class="miniCircle bg-petrol95"></span>
+                        <span>Gasoline 95</span>
+                      </p>
+
+                      <p class="petrolType">
+                        <span class="miniCircle bg-petrol91"></span>
+                        <span>Gasoline 91</span>
+                      </p>
+
+                      <p class="petrolType">
+                        <span class="miniCircle bg-diesel"></span>
+                        <span>Diesel</span>
+                      </p>
+                    </div>
+
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                  </div>
+                  </div>
+                  
+                </div>
+                <div class="card-body pt-half">
+                  <div class="position-relative overviewChart">
+                    <canvas id="overviewChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end OVERVIEW -->
+
+            <!-- start FULLNESS -->
+            <div class="col-xl-3 col-lg-4 col-md-5">
+              <div class="card mb-0 h-100">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title">Fullness</h3>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="card-body pt-half">
+                  <div class="position-relative">
+                    <div class="fullnessBar">
+                      <p class="petrolType">
+                        <span class="miniCircle bg-petrol95"></span>
+                        <span>Gasoline 95</span>
+                      </p>
+                      <div class="fullnessBar__top d-flex justify-content-between">
+                        <!-- current value -->
+
+                        <!-- 
+                          k === 1000
+                          L === Litre
+                          if (value < 1000) return <span>50L</span> (without k)
+                            else return ⬇️⬇️
+                         -->
+                        <span>50kL</span>
+                        <!-- capacity -->
+                        <span>100kL</span>
+                      </div>
+                      <div class="progress progress-xs bg-slight95 mb-3">
+                        <!-- 
+                          aria-valuenow="50" === current value
+                          aria-valuemax="100" === capacity
+                          style="width: 50%"  === (current value / capacity * 100) + '%'
+                         -->
+                        <div class="progress-bar bg-petrol95" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                          aria-valuemax="100" style="width: 50%">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="fullnessBar">
+                      <p class="petrolType">
+                        <span class="miniCircle bg-petrol91"></span>
+                        <span>Gasoline 91</span>
+                      </p>
+                      <div class="fullnessBar__top d-flex justify-content-between">
+                        <span>30kL</span>
+                        <span>100kL</span>
+                      </div>
+                      <div class="progress progress-xs mb-3 bg-slight91">
+                        <div class="progress-bar bg-petrol91" role="progressbar" aria-valuenow="30" aria-valuemin="0"
+                          aria-valuemax="100" style="width: 30%">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="fullnessBar">
+                      <p class="petrolType">
+                        <span class="miniCircle bg-diesel"></span>
+                        <span>Diesel</span>
+                      </p>
+                      <div class="fullnessBar__top d-flex justify-content-between">
+                        <span>80kL</span>
+                        <span>100kL</span>
+                      </div>
+                      <div class="progress progress-xs mb-3 bg-slightDiesel">
+                        <div class="progress-bar bg-diesel" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+                          aria-valuemax="100" style="width: 80%">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="fullnessBar">
+                      <p class="petrolType">
+                        <span class="miniCircle bg-total"></span>
+                        <span>Total</span>
+                      </p>
+                      <div class="fullnessBar__top d-flex justify-content-between">
+
+                        <span>160kL</span>
+                        <span>300kL</span>
+                      </div>
+                      <div class="progress progress-xs bg-slightTotal">
+                        <div class="progress-bar bg-total" role="progressbar" aria-valuenow="160" aria-valuemin="0"
+                          aria-valuemax="100" style="width: 53%">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end FULLNESS -->
+          </div>
+
+          <div class="sales">
+            <div class="row mt-3">
+              <!-- start gauges / sales -->
+
+              <!-- start benzin 95 -->
+              <div class="col-lg-3 col-md-6 mb-3 mb-lg-0">
+                <div class="card mb-0 benzin95Gauge h-100">
+                  <div class="card-header border-0">
+                    <div class="d-flex justify-content-between">
+                      <h3 class="card-title">Benzin 95 sales</h3>
+                      <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fa-solid fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-body pt-half">
+                    <div class="position-relative">
+                      <div class="gauge ">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                          x="0px" y="0px" style="display: none;">
+                          <symbol id="wave">
+                            <path
+                              d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z">
+                            </path>
+                            <path
+                              d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z">
+                            </path>
+                            <path
+                              d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z">
+                            </path>
+                            <path
+                              d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z">
+                            </path>
+                          </symbol>
+                        </svg>
+                        <div class="gauge__box">
+                          <div class="percent">
+                            <div class="percentNum" id="Count95">0</div>
+                            <div class="percentB">%</div>
+                          </div>
+                          <div id="Water95" class="bg-petrol95 water">
+                            <svg viewBox="0 0 560 20" class="water_wave water_wave_back">
+                              <use xlink:href="#wave"></use>
+                            </svg>
+                            <svg viewBox="0 0 560 20" class="water_wave water_wave_front">
+                              <use xlink:href="#wave"></use>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="sales__state mt-3">
+                        <p class="petrolType">
+                          <span class="miniCircle bg-petrol95"></span>
+                          <span>Gasoline 95</span>
+                        </p>
+                        <div class="sales__sold">
+                          <span>sold:</span>
+                          <!-- sold value goes here -->
+                          <span>62kL</span>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end benzin 95 -->
+
+              <!-- start benzin 91 -->
+              <div class="col-lg-3 col-md-6 mb-3 mb-lg-0">
+                <div class="card mb-0 benzin91Gauge h-100">
+                  <div class="card-header border-0">
+                    <div class="d-flex justify-content-between">
+                      <h3 class="card-title">Benzin 91 sales</h3>
+                      <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fa-solid fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-body pt-half">
+                    <div class="position-relative">
+                      <div class="gauge ">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                          x="0px" y="0px" style="display: none;">
+                          <symbol id="wave">
+                            <path
+                              d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z">
+                            </path>
+                            <path
+                              d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z">
+                            </path>
+                            <path
+                              d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z">
+                            </path>
+                            <path
+                              d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z">
+                            </path>
+                          </symbol>
+                        </svg>
+                        <div class="gauge__box">
+                          <div class="percent">
+                            <div class="percentNum" id="Count91">0</div>
+                            <div class="percentB">%</div>
+                          </div>
+                          <div id="Water91" class="bg-petrol91 water">
+                            <svg viewBox="0 0 560 20" class="water_wave water_wave_back">
+                              <use xlink:href="#wave"></use>
+                            </svg>
+                            <svg viewBox="0 0 560 20" class="water_wave water_wave_front">
+                              <use xlink:href="#wave"></use>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="sales__state mt-3">
+                        <p class="petrolType">
+                          <span class="miniCircle bg-petrol91"></span>
+                          <span>Gasoline 91</span>
+                        </p>
+                        <div class="sales__sold">
+                          <span>sold:</span>
+                          <!-- sold value goes here -->
+                          <span>32kL</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end benzin 91 -->
+
+              <!-- start diesel -->
+              <div class="col-lg-3 col-md-6 mb-3 mb-md-0">
+                <div class="card mb-0 dieselGauge h-100">
+                  <div class="card-header border-0">
+                    <div class="d-flex justify-content-between">
+                      <h3 class="card-title">Diesel sales</h3>
+                      <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fa-solid fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-body pt-half">
+                    <div class="position-relative">
+                      <div class="gauge ">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                          x="0px" y="0px" style="display: none;">
+                          <symbol id="wave">
+                            <path
+                              d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z">
+                            </path>
+                            <path
+                              d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z">
+                            </path>
+                            <path
+                              d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z">
+                            </path>
+                            <path
+                              d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z">
+                            </path>
+                          </symbol>
+                        </svg>
+                        <div class="gauge__box">
+                          <div class="percent">
+                            <div class="percentNum" id="CountDiesel">0</div>
+                            <div class="percentB">%</div>
+                          </div>
+                          <div id="WaterDiesel" class="bg-diesel water">
+                            <svg viewBox="0 0 560 20" class="water_wave water_wave_back">
+                              <use xlink:href="#wave"></use>
+                            </svg>
+                            <svg viewBox="0 0 560 20" class="water_wave water_wave_front">
+                              <use xlink:href="#wave"></use>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="sales__state mt-3">
+                        <p class="petrolType">
+                          <span class="miniCircle bg-diesel"></span>
+                          <span>Diesel</span>
+                        </p>
+                        <div class="sales__sold">
+                          <span>sold:</span>
+                          <!-- sold value goes here -->
+                          <span>68kL</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end diesel -->
+
+              </div>
+              <!-- end gauges / sales -->
+
+              <!-- start earnings -->
+              <div class="col-lg-3 col-md-6">
+                <div class="card mb-0 h-100">
+                  <div class="card-header border-0">
+                    <div class="d-flex justify-content-between">
+                      <h3 class="card-title">Earnings</h3>
+                      <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fa-solid fa-minus"></i>
+                      </button>
+
+                    </div>
+                  </div>
+                  <div class="card-body pt-half">
+                    <div class="position-relative">
+                      <div class="earningsGauge">
+                        <div class="earningsGauge__text">
+                          <p class="earningsGauge__subtitle clr-textLight">Total Earnings</p>
+                          <p class="earningsGauge__money clr-primary">2873.6$</p>
+                          <p class="earningsGauge__subtitle clr-textLight"><span class="clr-text">16.2kL</span> of total
+                            quantity have been sold</p>
+                        </div>
+
+                        <div class="earningsGauge__shape">
+                          <div class="mask">
+                            <div class="semi-circle bg-primary"></div>
+                            <div class="semi-circle--mask"></div>
+                          </div>
+                          <p class="earningsGauge__per">
+                            <span id='earningsPer'>0</span>
+                            <span>%</span>
+                          </p>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end earnings  -->
+            </div>
+          </div>
+
+
+          <div class="row mt-3">
+            <!-- start stock table -->
+            <div class="col-lg-6 mb-3 mb-lg-0">
+              <div class="card mb-0">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <!-- naming convention -->
+                    <!-- 
+                      <div id="BTNS+tableId"></div>
+                     -->
+                    <div id="BTNSstockTable" class="tableBtns">
+                      <h3 class="card-title">In Stock</h3>
+                    </div>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+
+                  </div>
+                </div>
+                <div class="card-body pt-half">
+                  <table class="table table-hover" id="stockTable">
+                    <thead>
+                      <tr>
+                        <th>station</th>
+                        <th>benzin 95</th>
+                        <th>Benzin 91</th>
+                        <th>Diesel</th>
+                      </tr>
+                    </thead>
+
+                  </table>
+                </div>
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- end stock table -->
+
+            <!-- start sales table -->
+            <div class="col-lg-6">
+              <div class="card mb-0">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <div id="BTNSsalesTable" class="tableBtns">
+                      <h3 class="card-title">Total Sales</h3>
+                    </div>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+
+                  </div>
+                </div>
+                <div class="card-body pt-half">
+                  <table class="table table-hover" id="salesTable">
+                    <thead>
+                      <tr>
+                        <th>station</th>
+                        <th>benzin 95</th>
+                        <th>Benzin 91</th>
+                        <th>Diesel</th>
+                      </tr>
+                    </thead>
+                  </table>
+
+                </div>
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- end sales table -->
+
+          </div>
+
+
+
+          <!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+
+
+
+  </div>
+  <!-- /.content-wrapper -->
+  <!-- ./wrapper -->
+
+
+  <!-- JQUERY -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- BOOTSTRAP -->
+  <script src="plugins/bootstrap/bootstrap.bundle.min.js"></script>
+  <!-- ADMIN LTE SCRIPTS -->
+  <script src="dist/js/scripts.min.js"></script>
+  <!-- CHART JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"
+    integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- TABLES -->
+  <script src="plugins/tables/js/jquery.dataTables.min.js"></script>
+  <script src="plugins/tables/js/dataTables.bootstrap4.min.js"></script>
+  <script src="plugins/tables/js/dataTables.responsive.min.js"></script>
+  <script src="plugins/tables/js/buttons.print.min.js"></script>
+  <script src="plugins/tables/js/dataTables.buttons.min.js"></script>
+  <script src="plugins/tables/js/buttons.html5.min.js"></script>
+  <script src="plugins/tables/js/jszip.min.js"></script>
+  <!-- COMMON SCRIPTS -->
+  <script src="dist/js/common.js"></script>
+  <!-- DASHBOARD -->
+  <script src="dist/js/reports/dashboard.js"></script>
+
+</body>
+
+</html>

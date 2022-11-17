@@ -1,0 +1,76 @@
+{
+  "data": [
+    {
+      "station": "bathaa",
+      "benzin95": "22000",
+      "benzin91": "233000",
+      "diesel": "1000"
+    },
+    {
+      "station": "skoop",
+      "benzin95": "32000",
+      "benzin91": "20",
+      "diesel": "2200"
+    },
+    {
+      "station": "sasko",
+      "benzin95": "82000",
+      "benzin91": "52000",
+      "diesel": "32000"
+    },
+    {
+      "station": "kahtany",
+      "benzin95": "12000",
+      "benzin91": "62000",
+      "diesel": "92000"
+    },
+    {
+      "station": "bathaa",
+      "benzin95": "22000",
+      "benzin91": "233000",
+      "diesel": "1000"
+    },
+    {
+      "station": "skoop",
+      "benzin95": "32000",
+      "benzin91": "20",
+      "diesel": "2200"
+    },
+    {
+      "station": "sasko",
+      "benzin95": "82000",
+      "benzin91": "52000",
+      "diesel": "32000"
+    },
+    {
+      "station": "kahtany",
+      "benzin95": "12000",
+      "benzin91": "62000",
+      "diesel": "92000"
+    },
+    {
+      "station": "bathaa",
+      "benzin95": "22000",
+      "benzin91": "233000",
+      "diesel": "1000"
+    },
+    {
+      "station": "skoop",
+      "benzin95": "32000",
+      "benzin91": "20",
+      "diesel": "2200"
+    },
+    {
+      "station": "sasko",
+      "benzin95": "82000",
+      "benzin91": "52000",
+      "diesel": "32000"
+    },
+    {
+      "station": "kahtany",
+      "benzin95": "12000",
+      "benzin91": "62000",
+      "diesel": "92000"
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" class="scrollbar2">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Qserv | Login</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="../../favicon.ico">
+    <link rel="shortcut icon" href="../../favicon.png">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- font-awesome icons -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+
+    <!-- grid -->
+    <link rel="stylesheet" href="../../dist/css/helpers/grid.css">
+
+    <!-- helperClasses -->
+    <link rel="stylesheet" href="../../dist/css/helpers/helperClasses.css">
+
+    <!-- forms -->
+    <link rel="stylesheet" href="../../dist/css/helpers/forms.css">
+
+    <!-- all other styles -->
+    <!-- <link rel="stylesheet" href="../../dist/css/restOfStyles.css"> -->
+
+    <!-- specific styles -->
+    <link rel="stylesheet" href="../../dist/css/global.css">
+    <link rel="stylesheet" href="../../dist/css/user/login.css">
+
+    <!-- RTL -->
+    <!-- <link rel="stylesheet" href="../../dist/css/RTL.css"> -->
+</head>
+
+<body>
+    <div class="login">
+        <div class="login__in">
+            <div class="logo">
+                <img src="../../dist/img/logo2.png" alt="">
+            </div>
+            <form id="quickForm">
+            
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa-solid fa-user"></i>
+                            </span>
+                        </div>
+                        <input type="text" name="username" class="form-control" id="username" placeholder="Enter username">
+                    </div>
+            
+            
+                </div>
+            
+                <div class="form-group">
+                    <label for="pass">Password</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa-solid fa-unlock-keyhole"></i>
+                            </span>
+                        </div><input type="password" name="password" class="form-control" id="pass" placeholder="Password">
+                    </div>
+            
+                </div>
+            
+            
+                <div class="form-group mb-0">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
+                        <label class="custom-control-label" for="exampleCheck1">Remember me
+                    </div>
+                </div>
+                <div class="dividerFull mt-2"></div>
+            
+                <button type="submit" class="brimaryBtn mt-3">Get in</button>
+            
+            </form>
+        </div>
+    </div>
+
+    <!-- JQUERY -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- BOOTSTRAP -->
+    <script src="../../plugins/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- ADMIN LTE SCRIPTS -->
+    <!-- <script src="../../dist/js/scripts.min.js"></script> -->
+
+    <!-- jquery-validation -->
+    <script src="../../plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="../../plugins/jquery-validation/additional-methods.min.js"></script>
+
+    <!-- COMMON SCRIPTS -->
+    <!-- <script src="../../dist/js/common.js"></script> -->
+    <!-- specific js -->
+    <script>
+        /* form validation */
+        $("#quickForm").validate({
+            rules: {
+                username: {
+                    required: true,
+                    minlength: 5,
+                },
+                password: {
+                    required: true,
+                    minlength: 5,
+                },
+            },
+            messages: {
+                email: {
+                    required: "Please enter a username",
+                    minlength: "username is at least 5 characters long",
+                },
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long",
+                },
+            },
+            errorElement: "span",
+            errorPlacement: function (error, element) {
+                error.addClass("invalid-feedback")
+                element.closest(".form-group").append(error)
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass("is-invalid")
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass("is-invalid")
+            },
+        })
+    </script>
+
+
+</body>
+
+</html>
